@@ -1,0 +1,130 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  background: rgb(255, 255, 255);
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(215, 248, 255, 1) 100%
+  );
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* background-color: #f8f8f8; */
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+  padding: 2px;
+  border-bottom: 1px solid #000000;
+  width: 80%;
+  margin-inline: auto;
+}
+
+ul {
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+}
+
+h2 {
+  font-family: "Poppins", sans-serif;
+  /* padding-left: 3rem; */
+  font-size: 3rem;
+  margin: 0;
+  padding: 2rem;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+  font-family: "Poppins", sans-serif;
+}
+
+h1 {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.5rem;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  background-color: #f8f8f8;
+  padding: 2rem;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.main-header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  box-shadow: unset;
+}
+
+.desc-p {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 1.3rem;
+  color: #333;
+  margin-top: 1rem;
+}
+
+.home {
+  width: 80%;
+  margin-inline: auto;
+  display: flex;
+  justify-content: space-between;
+  padding-block: 6rem;
+}
+
+.home > * {
+  width: 50%;
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  padding-left: 3rem;
+  font-size: 5rem;
+}
+
+img {
+  margin-inline: auto;
+  object-fit: cover;
+  border-radius: 100%;
+}
+
+.recipes-section {
+  background-color: white;
+  padding-block: 6rem;
+  text-align: center;
+}
+
+.recipes {
+  width: 80%;
+  margin-inline: auto;
+  padding-block: 6rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* .recipes-section-heading {
+  font-size: 4rem;
+  margin-bottom: 2rem;
+} */
+
+.video-section {
+  width: 80%;
+  margin-inline: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  padding-block: 3rem;
+}

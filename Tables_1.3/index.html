@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      margin-inline: auto;
+      margin-block: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border: solid 1px black;
+    }
+    th,
+    tr,
+    td {
+      border: solid 1px black;
+      text-align: center;
+      padding: 10px;
+    }
+
+    th {
+      border: solid 2px black;
+    }
+
+    .name {
+      font-weight: bold;
+    }
+
+    .table-header {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+  </style>
+  <body>
+    <main>
+      <section>
+        <table>
+          <th colspan="6" class="table-header">Students Table</th>
+          <tr>
+            <th>Name</th>
+            <th>Maths</th>
+            <th>Science</th>
+            <th>English</th>
+            <th>Physics</th>
+            <th>General Knowledge</th>
+          </tr>
+          <tr>
+            <td class="name">David</td>
+            <td>85</td>
+            <td>87</td>
+            <td>88</td>
+            <td>92</td>
+            <td>88</td>
+          </tr>
+          <tr>
+            <td class="name">Richard</td>
+            <td>91</td>
+            <td>81</td>
+            <td>78</td>
+            <td>71</td>
+            <td>74</td>
+          </tr>
+          <tr>
+            <td class="name">John</td>
+            <td>81</td>
+            <td>86</td>
+            <td>88</td>
+            <td>84</td>
+            <td>92</td>
+          </tr>
+          <tr>
+            <td class="name">Tony</td>
+            <td>84</td>
+            <td>86</td>
+            <td>87</td>
+            <td>82</td>
+            <td>81</td>
+          </tr>
+          <tr>
+            <td class="name">Scott</td>
+            <td>71</td>
+            <td>79</td>
+            <td>82</td>
+            <td>88</td>
+            <td>89</td>
+          </tr>
+        </table>
+      </section>
+    </main>
+  </body>
+</html>

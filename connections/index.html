@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Photography Store</title>
+  </head>
+
+  <style>
+    .image-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .image-links figure {
+      margin: 0;
+      padding: 0;
+      width: 400px;
+      height: 400px;
+    }
+
+    figcaption {
+      text-align: center;
+      font-size: 1.5rem;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+
+  <body>
+    <header id="top">
+      <h1>Photography Store</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home page</a></li>
+          <li><a href="beach.html">Beach Image</a></li>
+          <li><a href="house.html">House Image</a></li>
+          <li><a href="city.html">City Image</a></li>
+          <li><a href="#contact-section">Contact Us</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section class="main-section">
+        <h2>Photography</h2>
+        <p>
+          Photography is the art, application, and practice of creating durable
+          images by recording light, either electronically by means of an image
+          sensor, or chemically by means of a light-sensitive material such as
+          photographic film. It is employed in many fields of science,
+          manufacturing (e.g., photolithography), and business, as well as its
+          more direct uses for art, film and video production, recreational
+          purposes, hobby, and mass communication.
+        </p>
+        <div class="image-links">
+          <a href="beach.html">
+            <figure>
+              <img
+                src="https://images.unsplash.com/photo-1723444059817-50635ba04ffc?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="beach"
+              />
+              <figcaption>Beach</figcaption>
+            </figure>
+          </a>
+          <a href="house.html">
+            <figure>
+              <img
+                src="https://images.unsplash.com/photo-1723155094419-5ac8b25072d7?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="house"
+              />
+              <figcaption>House</figcaption>
+            </figure>
+          </a>
+
+          <a href="city.html">
+            <figure>
+              <img
+                src="https://images.unsplash.com/photo-1723242017539-39cd15eb75fd?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="city"
+              />
+              <figcaption>City</figcaption>
+            </figure>
+          </a>
+        </div>
+      </section>
+
+      <section class="testimonials">
+        <h2>Testimonials</h2>
+        <div class="card-container">
+          <div class="card">
+            <img
+              src="https://plus.unsplash.com/premium_photo-1664533227571-cb18551cac82?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt=""
+            />
+            <h3>Jonh Doe</h3>
+            <blockquote>
+              <p>
+                "I love the beach image. It's so calming and peaceful. I can't
+                wait to hang it in my living room."
+              </p>
+            </blockquote>
+          </div>
+          <div class="card">
+            <img
+              src="https://images.unsplash.com/photo-1522529599102-193c0d76b5b6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fG1hbnxlbnwwfHwwfHx8MA%3D%3D"
+              alt=""
+            />
+            <h3>Smith John</h3>
+
+            <blockquote>
+              <p>
+                "The house image is so beautiful. I love the colors and the
+                composition. It's perfect for my bedroom."
+              </p>
+            </blockquote>
+          </div>
+          <div class="card">
+            <img
+              src="https://images.unsplash.com/photo-1557862921-37829c790f19?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fG1hbnxlbnwwfHwwfHx8MA%3D%3D"
+              alt=""
+            />
+            <h3>John Smith</h3>
+
+            <blockquote>
+              <p>
+                "The city image is amazing. I love the contrast between the
+                buildings and the sky. It's going to look great in my office."
+              </p>
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact-section" class="contact-section">
+        <h2>Contact Us</h2>
+        <form class="contact-form" action="#" method="post">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required />
+          <label for="telephone">Telephone:</label>
+          <input type="tel" id="telephone" name="telephone" required />
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+          <label for="budget">Budget:</label>
+          <input
+            type="range"
+            id="budget"
+            name="budget"
+            min="0"
+            max="1000"
+            required
+          />
+          <button type="submit">Submit</button>
+        </form>
+      </section>
+      <!-- footer describing the photographer details -->
+      <footer>
+        <p>Photography by John Smith</p>
+        <p>Contact: johnsmith@example.com</p>
+        <p>&copy; 2021 Photography Store</p>
+        <button><a href="#top">Go to the top</a></button>
+      </footer>
+    </main>
+  </body>
+</html>

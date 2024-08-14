@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+      background-color: bisque;
+      height: 100vh;
+
+      margin-inline: auto;
+      margin-block: auto;
+    }
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      padding: 10px;
+    }
+    .details {
+      align-items: left;
+    }
+    .image-container {
+      gap: 20px;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .other-tags {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      padding: 10px;
+    }
+    .other-tags > * {
+      width: 50%;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border: solid 1px black;
+    }
+    th,
+    td {
+      border: solid 1px black;
+      padding: 10px;
+    }
+    .image {
+      border: solid 3px black;
+      padding: 10px;
+      border-radius: 20px;
+    }
+  </style>
+  <body>
+    <main class="container">
+      <section class="image-container">
+        <div class="image">
+          <h2>This image is from the Web</h2>
+          <img
+            src="https://images.unsplash.com/photo-1472396961693-142e6e269027?q=80&w=1852&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="nature image"
+            height="500"
+          />
+        </div>
+        <div class="image">
+          <h2>This image is from the local folder</h2>
+          <img src="public/nature.webp" alt="nature image" height="500" />
+        </div>
+      </section>
+      <section class="details">
+        <h1>This is a h1</h1>
+        <h2>This is a h2</h2>
+        <h3>This is a h3</h3>
+        <h4>This is a h4</h4>
+        <h5>This is a h5</h5>
+        <h6>This is a h6</h6>
+        <p>This is a paragraph</p>
+        <a href="https://www.google.com">Google website</a>
+        <h3>Unordered list</h3>
+        <ul>
+          <li>This is a list item</li>
+          <li>This is a list item</li>
+          <li>This is a list item</li>
+        </ul>
+      </section>
+    </main>
+    <section class="other-tags">
+      <div>
+        <h1>address tag</h1>
+        <address>
+          A <code>address</code> Defines contact information for the
+          author/owner of a document
+        </address>
+      </div>
+      <div>
+        <h1>Aside tag</h1>
+        <aside>
+          a <code>aside</code> Defines content aside from the page content
+        </aside>
+      </div>
+      <div>
+        <h1>Strong tag</h1>
+        <strong>
+          a <code>strong</code> tag is used to define important text
+        </strong>
+      </div>
+      <div>
+        <h1>Table tag</h1>
+
+        <table>
+          <tr>
+            <th>This is a th tag (table head)</th>
+            <th>Lastname</th>
+            <th>Age</th>
+          </tr>
+          <tr>
+            <td>This is a td tag</td>
+            <td>Smith</td>
+            <td>50</td>
+          </tr>
+        </table>
+      </div>
+    </section>
+  </body>
+</html>

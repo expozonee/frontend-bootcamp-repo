@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <main>
+      <h1>Create an Account</h1>
+      <form action="#" method="get">
+        <fieldset>
+          <label for="email">Email:</label>
+          <input type="email" name="email" id="email" required />
+        </fieldset>
+        <fieldset>
+          <label for="password">Password:</label>
+          <input type="password" name="password" id="password" required />
+        </fieldset>
+        <fieldset>
+          <label for="age">Age:</label>
+          <!-- <input type="number" name="age" id="age" min="18" max="99" required /> -->
+          <select name="age" id="">
+            <option value="" disabled selected>Select Age</option>
+            <option value="18">18</option>
+            <option value="25">25</option>
+            <option value="30">30</option>
+            <option value="35">35</option>
+          </select>
+        </fieldset>
+        <fieldset>
+          <label for="desc">Tell us a little about yourself:</label>
+          <textarea name="desc" id="" rows="5"></textarea>
+        </fieldset>
+        <fieldset>
+          <input type="checkbox" name="terms-agree" id="" />
+          <label for="terms-agree"
+            >I agree to the <a href="terms.html">terms and conditions</a></label
+          >
+        </fieldset>
+        <button type="submit">Sign Up</button>
+      </form>
+    </main>
+  </body>
+</html>
