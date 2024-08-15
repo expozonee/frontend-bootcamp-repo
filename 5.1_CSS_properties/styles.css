@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: larger;
+}
+
+body {
+  padding-inline: 2em;
+}
+
+.div1 {
+  border: 1px solid red;
+  font-size: 2em;
+  border-radius: 1em;
+}
+
+.div2 {
+  font-weight: 900;
+  font-style: italic;
+}
+
+.div3 {
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  background-color: black;
+  color: white;
+  font-family: "Courier New", Courier, monospace;
+}
