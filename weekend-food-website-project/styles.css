@@ -27,11 +27,17 @@ h2 {
   font-weight: 700;
   font-size: 2.8em;
 }
+h3 {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 1.2em;
+}
 
 p {
   font-family: "Inter", sans-serif;
   font-weight: 500;
   font-size: 1.2em;
+  color: var(--pink-color);
 }
 
 img {
@@ -46,6 +52,10 @@ button {
   border-radius: 10em;
   cursor: pointer;
   border: none;
+}
+
+span {
+  color: var(--pink-color);
 }
 
 h1 span {
@@ -115,6 +125,7 @@ a {
 .welcome-section-cta p {
   padding-block: 1.5em;
   font-size: 1.5em;
+  color: var(--dark-gray-color);
 }
 
 .welcome-section-cta-buttons {
@@ -215,9 +226,10 @@ a {
 }
 
 .categories-cards {
+  width: 100%;
   display: flex;
   gap: 2em;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   padding: 1.5em 1em;
 }
@@ -227,8 +239,8 @@ a {
   flex-direction: column;
   justify-content: center;
   gap: 0.5em;
-  width: 135px;
-  height: 200px;
+  width: 200px;
+  height: 250px;
   padding-inline: 3em;
   box-shadow: 3px 27px 34px rgb(226, 226, 226);
   margin: 0;
@@ -251,15 +263,101 @@ a {
   object-fit: cover;
 }
 
-.category-title {
+/* .category-title {
   font-family: "Inter", sans-serif;
   font-weight: 600;
   font-size: 1.2em;
-}
+} */
 
 .category-count {
   font-family: "Inter", sans-serif;
   font-weight: 500;
   font-size: 1em;
   color: var(--dark-gray-color);
+}
+
+/* standout-dishes-section */
+
+.standout-dishes-section {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  margin: 0em auto;
+  height: 800px;
+}
+
+.dishes-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.dishes-container {
+  display: flex;
+  gap: 2em;
+  justify-content: space-between;
+}
+
+.standout-dishes-section h2 {
+  width: 30%;
+}
+
+.card.dish {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 25%;
+  gap: 1em;
+  padding: 3em 2em;
+  background-color: var(--white-color);
+  overflow: hidden;
+  box-shadow: 3px 27px 34px rgb(226, 226, 226);
+}
+
+.card.dish::before {
+  content: "";
+  position: absolute;
+  top: -23px;
+  right: -18px;
+  width: 100px;
+  height: 100px;
+  background-color: var(--primary-color);
+  border-radius: 0 2.8em;
+}
+
+.card.dish .heart-icon {
+  position: absolute;
+  top: 1.5em;
+  right: 1.5em;
+}
+
+.img-container.dish {
+  background-color: unset;
+  border-radius: unset;
+  width: 250px;
+  height: 250px;
+}
+
+.dish-title {
+  font-size: 1.8em;
+  align-self: normal;
+}
+
+.dish p {
+  font-size: 1.2em;
+  color: var(--dark-gray-color);
+  align-self: normal;
+}
+
+.price-rating {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.price-rating .rating {
+  display: flex;
+  gap: 0.5em;
 }
