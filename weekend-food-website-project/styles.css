@@ -5,12 +5,14 @@
   --primary-color: #39db4a;
   --secondary-color: #ffe605;
   --white-color: #fff;
+  --dark-gray-color: #515151;
+  --pink-color: #ff7979;
 }
 
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
 }
 
 h1 {
@@ -23,6 +25,20 @@ p {
   font-family: "Inter", sans-serif;
   font-weight: 500;
   font-size: 1.2em;
+}
+
+img {
+  width: 90%;
+}
+
+button {
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 1em;
+  padding: 0.8em 2em;
+  border-radius: 10em;
+  cursor: pointer;
+  border: none;
 }
 
 h1 span {
@@ -64,14 +80,12 @@ a {
   gap: 1em;
   justify-content: center;
 
-  padding: 0.8em 2em;
   border: none;
   background-color: var(--primary-color);
   color: var(--white-color);
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   cursor: pointer;
-  border-radius: 10em;
 }
 
 .welcome-section {
@@ -94,4 +108,82 @@ a {
 .welcome-section-cta p {
   padding-block: 1.5em;
   font-size: 1.5em;
+}
+
+.welcome-section-cta-buttons {
+  display: flex;
+  gap: 1em;
+}
+
+.welcome-section-cta-buttons button {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  padding: 1em 2em;
+  border-radius: 10em;
+  height: 3em;
+  align-self: center;
+}
+
+.welcome-section-cta-buttons button:nth-child(2) {
+  background-color: var(--white-color);
+  color: black;
+}
+
+.welcome-section-cta-buttons svg {
+  box-shadow: 3px 27px 34px rgb(187, 187, 187);
+  border-radius: 100%;
+}
+
+.welcome-section-image {
+  width: 50%;
+  position: relative;
+}
+
+.card {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5em 1em;
+  background-color: var(--white-color);
+  box-shadow: 3px 27px 34px rgb(168, 168, 168);
+  border-radius: 1em;
+}
+
+.card h2 {
+  font-size: 1em;
+  font-family: "Inter", sans-serif;
+}
+
+.welcome-section-meals-cards {
+  display: flex;
+  gap: 2em;
+  position: absolute;
+  width: 100%;
+  bottom: -70px;
+}
+
+.welcome-section-meals-cards .card-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 0.5em;
+  padding-left: 1em;
+}
+
+.welcome-section-meals-cards .price {
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  color: var(--dark-gray-color);
+}
+
+.welcome-section-meals-cards .price span {
+  color: var(--pink-color);
+}
+
+.welcome-section-meals-cards img {
+  width: 80px;
+  height: 80px;
+  border-radius: 20px;
 }
