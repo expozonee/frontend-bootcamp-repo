@@ -1,0 +1,136 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f1f1f1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+cite {
+  display: block;
+  text-align: center;
+  font-size: 1.2em;
+  margin-top: 20px;
+  color: #ca0c0c;
+}
+
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 5em;
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+  gap: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+  padding: 1em 2em;
+  background-color: #ca0c0c;
+  color: white;
+  border-radius: 5px;
+}
+
+blockquote {
+  font-size: 1.5em;
+  /* font-style: italic; */
+  margin: 20px;
+  padding: 20px;
+  background-color: #3a1717;
+  border-left: 10px solid #ca0c0c;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+
+a:hover {
+  background-color: #333;
+}
+
+.greeting-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  background-color: #fff;
+  border: 1px solid black;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px;
+}
+
+.greeting-card h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.quote {
+  max-width: 800px;
+}
+
+.frame {
+  width: 50%;
+  aspect-ratio: 1/1;
+  border-radius: 10%;
+  overflow: hidden;
+  margin-bottom: 10px;
+  border: 1px solid rgb(255, 255, 255);
+}
+
+.quote p {
+  font-size: 1em;
+  line-height: 1.5em;
+  font-style: italic;
+  text-align: center;
+  position: relative;
+}
+
+.quote p::before,
+.quote p::after {
+  position: absolute;
+  font-family: Georgia, serif;
+  font-size: 2em;
+  color: #ca0c0c;
+}
+
+.quote p::before {
+  content: open-quote;
+  top: -10px;
+  left: -10px;
+}
+
+.quote p::after {
+  content: close-quote;
+  bottom: -20px;
+  /* right: -10px; */
+}
+
+.quote-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
