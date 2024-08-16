@@ -54,6 +54,10 @@ p[pink="false"] {
   color: var(--dark-gray-color);
 }
 
+p[heading="true"] {
+  padding-block: 1em;
+}
+
 img {
   width: 90%;
 }
