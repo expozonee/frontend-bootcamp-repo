@@ -406,7 +406,9 @@ a {
 
 .p-title {
   margin-block: unset;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.15em;
+  font-size: 1em;
+  font-weight: 700;
 }
 
 .testimonial-p {
@@ -427,7 +429,7 @@ a {
 }
 
 .feedback-images > img + img {
-  margin-left: -20px;
+  margin-left: -32px;
 }
 
 .feedback-text {
@@ -442,6 +444,14 @@ a {
   display: flex;
   width: 100%;
   gap: 1.5em;
+  align-items: center;
+}
+
+.rating-feedback a {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--dark-gray-color);
 }
 
 .star-rating {
