@@ -279,8 +279,8 @@ footer {
 
 .popular-categories-section p:first-child {
   color: var(--pink-color);
-  font-size: 1.1em;
-  font-weight: 600;
+  font-size: 1em;
+  font-weight: 700;
 }
 
 .categories-cards {
@@ -606,9 +606,9 @@ footer {
   padding: 1.5em 1em;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
-  gap: 1em;
+  /* gap: 1em; */
   text-align: center;
   box-shadow: 3px 27px 34px rgb(226, 226, 226);
 }
@@ -617,6 +617,7 @@ footer {
   font-size: 1.5em;
   color: var(--primary-color);
   text-transform: uppercase;
+  margin-block: 0.8em;
 }
 
 .card.story p {
@@ -624,6 +625,7 @@ footer {
   color: var(--dark-green-color);
   height: 70px;
   padding-inline: 0.6em;
+  font-weight: 600;
 }
 
 /* footer */
