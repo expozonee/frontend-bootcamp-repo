@@ -351,6 +351,10 @@ footer {
   gap: 1em;
 }
 
+.dishes-heading p {
+  margin-bottom: 0.6em;
+}
+
 .dishes-container {
   display: flex;
   gap: 2em;
