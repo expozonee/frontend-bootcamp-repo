@@ -27,10 +27,17 @@ h2 {
   font-weight: 700;
   font-size: 2.8em;
 }
+
 h3 {
   font-family: "Inter", sans-serif;
   font-weight: 600;
   font-size: 1.2em;
+}
+
+h4 {
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: 1.3em;
 }
 
 p {
@@ -380,8 +387,7 @@ a {
 }
 
 .testimonials-img img {
-  width: 400px;
-  /* height: 300px; */
+  width: 450px;
   object-fit: cover;
 }
 
@@ -398,7 +404,53 @@ a {
   width: 80%;
 }
 
+.p-title {
+  margin-block: unset;
+  letter-spacing: 0.2em;
+}
+
 .testimonial-p {
   font-size: 1.2em;
   color: var(--dark-gray-color);
+}
+
+.images-text-feedback-section {
+  display: flex;
+  gap: 2em;
+}
+
+.feedback-images > img {
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  border: solid 5px var(--white-color);
+}
+
+.feedback-images > img + img {
+  margin-left: -20px;
+}
+
+.feedback-text {
+  width: 60%;
+}
+
+.feedback-text h4 {
+  margin-bottom: 0.2em;
+}
+
+.rating-feedback {
+  display: flex;
+  width: 100%;
+  gap: 1.5em;
+}
+
+.star-rating {
+  display: flex;
+  gap: 0.5em;
+}
+
+.rating-feedback p {
+  width: unset;
+  color: var(--dark-gray-color);
+  font-weight: 600;
 }
