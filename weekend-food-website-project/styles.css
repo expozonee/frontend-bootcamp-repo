@@ -8,6 +8,7 @@
   --dark-gray-color: #515151;
   --pink-color: #ff7979;
   --light-green-color: #c1f1c6;
+  --dark-green-color: #90bd95;
 }
 
 * {
@@ -45,6 +46,10 @@ p {
   font-weight: 500;
   font-size: 1.2em;
   color: var(--pink-color);
+}
+
+p[pink="false"] {
+  color: var(--dark-gray-color);
 }
 
 img {
@@ -409,6 +414,7 @@ a {
   letter-spacing: 0.15em;
   font-size: 1em;
   font-weight: 700;
+  text-transform: uppercase;
 }
 
 .testimonial-p {
@@ -463,4 +469,74 @@ a {
   width: unset;
   color: var(--dark-gray-color);
   font-weight: 600;
+}
+
+/* our-story-section */
+
+.our-story-section {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  gap: 2em;
+  height: 800px;
+  padding-block: 3em;
+}
+
+.story-text {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2em;
+}
+
+.story-text > h2 {
+  width: 70%;
+}
+
+.story-text > p {
+  width: 70%;
+}
+
+.story-cards {
+  display: flex;
+  width: 50%;
+  gap: 2em;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-container {
+  display: grid;
+  width: 90%;
+  height: 600px;
+  gap: 2em;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.card.story {
+  flex-direction: column;
+  width: calc(95% - 1.8em);
+  height: 270px;
+  padding: 1.5em 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 1em;
+  text-align: center;
+  box-shadow: 3px 27px 34px rgb(226, 226, 226);
+}
+
+.card.story h4 {
+  font-size: 1.5em;
+  color: var(--primary-color);
+  text-transform: uppercase;
+}
+
+.card.story p {
+  font-size: 1.22em;
+  color: var(--dark-green-color);
+  height: 70px;
+  padding-inline: 0.6em;
 }
