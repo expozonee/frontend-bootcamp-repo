@@ -7,6 +7,8 @@
   --white-color: #fff;
   --dark-gray-color: #515151;
   --gray-color: #555555;
+  --light-gray-color: #efefef;
+  --middle-gray-color: #6f6e6e;
   --pink-color: #ff7979;
   --light-green-color: #c1f1c6;
   --dark-green-color: #90bd95;
@@ -325,12 +327,6 @@ footer {
   object-fit: cover;
 }
 
-/* .category-title {
-  font-family: "Inter", sans-serif;
-  font-weight: 600;
-  font-size: 1.2em;
-} */
-
 .category-count {
   font-family: "Inter", sans-serif;
   font-weight: 500;
@@ -351,12 +347,14 @@ footer {
 
 .dishes-heading {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   gap: 1em;
+  margin-bottom: 1.5em;
 }
 
 .dishes-heading p {
   margin-bottom: 0.6em;
+  padding-block: 2.2em;
 }
 
 .dishes-container {
@@ -365,8 +363,32 @@ footer {
   justify-content: space-between;
 }
 
+.arrows {
+  align-self: stretch;
+  /* flex-grow: stretch; */
+  display: flex;
+  gap: 2em;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.arrows button {
+  width: 75px;
+  height: 75px;
+  padding: 0;
+  font-size: 1.7em;
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  border-radius: 100%;
+}
+
+.arrows button:first-child {
+  background-color: var(--light-gray-color);
+  color: var(--middle-gray-color);
+}
+
 .standout-dishes-section h2 {
-  width: 30%;
+  width: 60%;
 }
 
 .card.dish {
