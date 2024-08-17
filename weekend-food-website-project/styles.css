@@ -363,7 +363,7 @@ footer {
   justify-content: space-between;
 }
 
-.arrows {
+.arrows-buttons {
   align-self: stretch;
   /* flex-grow: stretch; */
   display: flex;
@@ -372,7 +372,7 @@ footer {
   align-items: flex-end;
 }
 
-.arrows button {
+.arrows-buttons button {
   width: 75px;
   height: 75px;
   padding: 0;
@@ -382,7 +382,7 @@ footer {
   border-radius: 100%;
 }
 
-.arrows button:first-child {
+.arrows-buttons button:first-child {
   background-color: var(--light-gray-color);
   color: var(--middle-gray-color);
 }
