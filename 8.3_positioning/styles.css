@@ -1,0 +1,35 @@
+div {
+  position: absolute;
+  color: black;
+  background-color: white;
+  border: 3px solid black;
+}
+
+.one {
+  width: 250px;
+  height: 200px;
+  z-index: 1;
+}
+
+.two {
+  width: 200px;
+  height: 300px;
+  top: 150px;
+  left: 150px;
+  z-index: 2;
+}
+
+.three {
+  width: 600px;
+  height: 170px;
+  top: 350px;
+  left: 50px;
+  z-index: 3;
+}
+
+.four {
+  width: 100px;
+  height: 600px;
+  left: 500px;
+  z-index: 4;
+}
