@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+main {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  height: 100vh;
+}
+
+div {
+  width: 100px;
+  height: 80px;
+}
+div:nth-child(1) {
+  background-color: green;
+}
+
+div:nth-child(2) {
+  background-color: blue;
+}
+
+div:nth-child(3) {
+  background-color: red;
+}
