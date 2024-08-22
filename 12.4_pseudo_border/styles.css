@@ -10,6 +10,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  font-family: Arial, sans-serif;
 }
 
 section {
@@ -25,21 +26,16 @@ section {
 section::before {
   content: "";
   position: absolute;
-  width: 250px;
-  height: 250px;
-  left: 75px;
-  top: -25px;
+  inset-inline: 40px;
+  inset-block: -50px;
   background-color: black;
 }
 
 section::after {
   content: "";
   position: absolute;
-  width: 450px;
-  height: 70%;
-  right: -25px;
-  left: -25px;
-  top: 15%;
+  inset-inline: -50px;
+  inset-block: 40px;
   background-color: black;
 }
 
@@ -48,5 +44,7 @@ h1 {
   z-index: 1;
   color: white;
   text-align: center;
-  font-size: 2.5rem;
+  font-size: 2.2rem;
+  text-transform: uppercase;
+  font-weight: 900;
 }
