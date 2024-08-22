@@ -1,0 +1,22 @@
+section {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  background-color: #ff0000;
+}
+
+section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 50%;
+  background-color: #5f0d58;
+  transition: background-color 0.5s;
+}
+
+section:hover::before {
+  background-color: aqua;
+  transition: background-color 0.5s;
+}
