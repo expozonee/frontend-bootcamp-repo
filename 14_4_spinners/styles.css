@@ -64,7 +64,6 @@ section {
   border-top-color: #f1f1f1;
   border-radius: 50%;
   animation: rotate 1s linear infinite;
-  border-width: 3px 3px 0 0px;
 }
 
 .dots-blink,
