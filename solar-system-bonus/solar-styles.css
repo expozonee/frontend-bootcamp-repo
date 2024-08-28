@@ -1,0 +1,133 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: hsl(240, 67%, 8%);
+  height: 100vh;
+  width: 100vw;
+}
+
+main {
+  height: 100vh;
+  width: 100vw;
+}
+
+.solar {
+  all: unset;
+  container-type: inline-size;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* the container which will have the border (path) to move on */
+div:not(.sun) {
+  width: var(--width, 300px);
+  aspect-ratio: 1;
+  display: grid;
+  grid-area: 1 / -1;
+  border: 0.2cqi dashed hsl(0, 0%, 100%);
+  border-radius: 50%;
+}
+
+/* the psuedo element that will move on the border of the parent with the use of offset-path */
+div:not(.sun)::after {
+  content: "";
+  width: var(--diameter, 30px);
+  aspect-ratio: 1;
+  background-color: var(--planet-color, hsla(0, 77%, 41%));
+  border-radius: 50%;
+  offset-path: content-box;
+  animation: rotate var(--duration, 2s) linear infinite;
+  display: block;
+}
+
+.sun {
+  height: 30cqi;
+
+  aspect-ratio: 1;
+  background-color: hsl(50, 100%, 50%);
+  border-radius: 50%;
+  position: absolute;
+  overflow: hidden;
+}
+
+@keyframes rotate {
+  100% {
+    offset-distance: 100%;
+  }
+}
+
+.mercury {
+  --width: 40cqi;
+  --duration: 5s;
+  --diameter: 2cqi;
+  --planet-color: green;
+}
+
+.earth {
+  --width: 45cqi;
+  --duration: 10s;
+  --diameter: 2cqi;
+
+  --planet-color: hsl(190, 100%, 50%);
+}
+
+.venus {
+  --width: 50cqi;
+  --duration: 3s;
+  --diameter: 2cqi;
+
+  --planet-color: hsl(40, 100%, 50%);
+}
+
+.mars {
+  --width: 55cqi;
+  --duration: 7s;
+  --diameter: 2cqi;
+  --planet-color: hsl(0, 100%, 50%);
+}
+
+.jupiter {
+  --width: 60cqi;
+  --duration: 15s;
+  --diameter: 2.5cqi;
+  --planet-color: hsl(40, 100%, 50%);
+}
+
+.saturn {
+  --width: 65cqi;
+  --duration: 20s;
+  --diameter: 1.5cqi;
+  --planet-color: hsl(295, 51%, 36%);
+}
+
+.uranus {
+  --width: 70cqi;
+  --duration: 12s;
+  --diameter: 3cqi;
+  --planet-color: hsl(180, 100%, 50%);
+}
+
+.neptune {
+  --width: 75cqi;
+  --duration: 13s;
+  --diameter: 3cqi;
+  --planet-color: hsl(220, 100%, 50%);
+}
+
+.pluto {
+  --width: 80cqi;
+  --duration: 2s;
+  --diameter: 2cqi;
+  --planet-color: hsl(0, 0%, 100%);
+}
