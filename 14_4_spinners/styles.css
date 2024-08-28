@@ -1,0 +1,136 @@
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  /* box-sizing: border-box; */
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #000000;
+}
+
+section {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #333;
+  border-radius: 50%;
+  position: relative;
+  background-color: transparent;
+}
+
+.spinner::after {
+  content: "";
+  position: absolute;
+  inset: -5px;
+  border: 5px solid #333;
+  border-top-color: #f1f1f1;
+  border-radius: 50%;
+  animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.cirlce {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  position: relative;
+  background-color: transparent;
+}
+
+.cirlce::after {
+  content: "";
+  position: absolute;
+  inset: -5px;
+  border: 5px solid transparent;
+  border-top-color: #f1f1f1;
+  border-radius: 50%;
+  animation: rotate 1s linear infinite;
+  border-width: 3px 3px 0 0px;
+}
+
+.dots-blink,
+.dots-scale {
+  display: flex;
+  gap: 20px;
+  padding-left: 10px;
+}
+
+.dots-blink .dot {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #f1f1f1;
+  animation: blink 1s ease-in infinite;
+}
+
+.dot:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes blink {
+  0% {
+    background-color: gold;
+  }
+  100% {
+    background-color: #f1f1f1;
+  }
+}
+
+.dots-scale .dot {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: gold;
+  animation: scale 1.2s ease infinite;
+}
+
+.dot:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.33s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 0.66s;
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
