@@ -25,12 +25,16 @@ button {
   position: absolute;
   top: 0;
   left: 0;
-  height: 100px;
+  height: 80px;
   width: 100px;
   background-color: rgb(155, 17, 17);
   transition: transform 1s;
   transform: translateY(-100%);
-  content: "";
+  content: "Cool!";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
 }
 
 .translate-y:hover::after {
@@ -41,12 +45,16 @@ button {
   position: absolute;
   top: 0;
   left: 0;
-  height: 100px;
+  height: 80px;
   width: 100px;
   background-color: rgb(155, 17, 17);
   transition: transform 1s;
   transform: translateX(-100%);
-  content: "";
+  content: "Cool!";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
 }
 
 .translate-x:hover::after {
@@ -57,13 +65,17 @@ button {
   position: absolute;
   top: 0;
   left: 0;
-  height: 100px;
+  height: 80px;
   width: 100px;
   background-color: rgb(155, 17, 17);
   transition: transform 1s;
   transform: rotate(180deg);
   transform-origin: top left;
-  content: "";
+  content: "Rotate!";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
 }
 
 .rotate:hover::after {
@@ -102,7 +114,7 @@ button {
   position: absolute;
   top: 0;
   left: 0;
-  height: 100px;
+  height: 80px;
   width: 100px;
   background-color: rgb(155, 17, 17);
   transition: all 1s;
@@ -114,18 +126,6 @@ button {
 .skew:hover::after {
   transform: skew(0deg) rotateY(180deg);
   opacity: 1;
-}
-
-.skew-x::after {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100px;
-  width: 100px;
-  background-color: rgb(155, 17, 17);
-  transition: transform 1s;
-  transform: skewX(45deg);
-  content: "";
 }
 
 .skew-x:hover::after {
