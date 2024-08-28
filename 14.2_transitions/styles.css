@@ -1,0 +1,134 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+button {
+  height: 80px;
+  width: 100px;
+  background-color: burlywood;
+  position: relative;
+  overflow: hidden;
+}
+
+.translate-y::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100px;
+  width: 100px;
+  background-color: rgb(155, 17, 17);
+  transition: transform 1s;
+  transform: translateY(-100%);
+  content: "";
+}
+
+.translate-y:hover::after {
+  transform: translateY(0%);
+}
+
+.translate-x::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100px;
+  width: 100px;
+  background-color: rgb(155, 17, 17);
+  transition: transform 1s;
+  transform: translateX(-100%);
+  content: "";
+}
+
+.translate-x:hover::after {
+  transform: translateX(0%);
+}
+
+.rotate::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100px;
+  width: 100px;
+  background-color: rgb(155, 17, 17);
+  transition: transform 1s;
+  transform: rotate(180deg);
+  transform-origin: top left;
+  content: "";
+}
+
+.rotate:hover::after {
+  transform: rotate(0deg);
+}
+
+.scale::after {
+  position: absolute;
+  inset: -10px;
+
+  background-color: rgb(155, 17, 17);
+  transition: all 1s;
+  opacity: 0;
+  transform: scale(3);
+  content: "scale";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.scale:hover::after {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.skew {
+  position: relative;
+  transition: all 1s;
+}
+
+.skew:hover {
+  transform: skew(-10deg) translateX(20px);
+}
+
+.skew::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100px;
+  width: 100px;
+  background-color: rgb(155, 17, 17);
+  transition: all 1s;
+  transform: skew(25deg);
+  opacity: 0;
+  content: "";
+}
+
+.skew:hover::after {
+  transform: skew(0deg);
+  transform: rotateY(180deg);
+  opacity: 1;
+}
+
+.skew-x::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100px;
+  width: 100px;
+  background-color: rgb(155, 17, 17);
+  transition: transform 1s;
+  transform: skewX(45deg);
+  content: "";
+}
+
+.skew-x:hover::after {
+  transform: skewX(0deg);
+}
