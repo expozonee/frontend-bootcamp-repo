@@ -22,10 +22,17 @@ section {
   max-width: 600px;
 }
 
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .spinner {
   width: 50px;
   height: 50px;
   border: 5px solid #333;
+  border-top: 5;
   border-radius: 50%;
   position: relative;
   background-color: transparent;
@@ -41,26 +48,12 @@ section {
   animation: rotate 1s linear infinite;
 }
 
-@keyframes rotate {
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
 .cirlce {
+  content: "";
   width: 50px;
   height: 50px;
-  border-radius: 50%;
-  position: relative;
-  background-color: transparent;
-}
-
-.cirlce::after {
-  content: "";
-  position: absolute;
-  inset: -5px;
-  border: 5px solid transparent;
-  border-top-color: #f1f1f1;
+  border: 3px solid rgb(255, 255, 255) transparent;
+  border-top: 2px solid #f1f1f1;
   border-radius: 50%;
   animation: rotate 1s linear infinite;
 }
