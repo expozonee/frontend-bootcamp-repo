@@ -95,7 +95,7 @@ button {
 }
 
 .skew:hover {
-  transform: skew(-10deg) translateX(20px);
+  transform: skewY(-5deg) translateX(20px);
 }
 
 .skew::after {
@@ -112,8 +112,7 @@ button {
 }
 
 .skew:hover::after {
-  transform: skew(0deg);
-  transform: rotateY(180deg);
+  transform: skew(0deg) rotateY(180deg);
   opacity: 1;
 }
 
