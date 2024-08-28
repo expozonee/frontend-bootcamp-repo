@@ -1,0 +1,29 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+section {
+  height: 100px;
+  width: 100px;
+  background-color: burlywood;
+  position: relative;
+  overflow: hidden;
+}
+
+section::after {
+  content: "";
+  display: block;
+  height: 100px;
+  width: 100px;
+  background-color: rgb(155, 17, 17);
+  transition: transform 1s;
+  transform: translateX(0%);
+}
+
+section:hover::after {
+  transform: translateX(100%);
+}
