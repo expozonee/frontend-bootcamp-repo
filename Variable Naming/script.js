@@ -4,4 +4,4 @@ const isLoggedIn = true;
 
 const customerEmailFromForm = "test@test.com";
 
-const totlaScoreBasketball = 100;
+const totalScoreBasketball = 100;
