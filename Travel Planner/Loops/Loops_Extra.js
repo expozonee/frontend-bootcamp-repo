@@ -102,6 +102,7 @@ while (true) {
     break;
   }
 }
+console.log(itinerary);
 
 // 5. Least Number of Connections
 const destinations5 = [
