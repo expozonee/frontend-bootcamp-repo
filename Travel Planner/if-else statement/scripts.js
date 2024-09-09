@@ -14,8 +14,8 @@ if (destinationTemp >= 15 && destinationTemp <= 27) {
   console.log("Consider another destination or time");
 }
 
-let flightBooked = true;
-let hotelBooked = true;
+const flightBooked = true;
+const hotelBooked = true;
 
 if (flightBooked) {
   if (hotelBooked) {
