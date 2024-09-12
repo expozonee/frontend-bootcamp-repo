@@ -476,3 +476,25 @@ function countDuplicates(str) {
 }
 
 console.log(countDuplicates("helloo")); // 2, repeated characters are l repeated 2 times, o repeated 2 times
+
+// 6.3
+
+function tteesstt(str1, str2) {
+  const combinedStr = (str1 + str2).toLowerCase();
+
+  const condition = /^[a-z]+$/;
+
+  if (!condition.test(combinedStr.toLowerCase())) {
+    return "String must contain only lowercase alphabet characters";
+  }
+
+  let uniqueletters = combinedStr
+    .split("")
+    .filter((char, index, arr) => arr.indexOf(char) === index)
+    .join("");
+
+  const orderedChars = uniqueletters.split("").sort().join("");
+  return orderedChars;
+}
+
+console.log(tteesstt("hesdfdsfgsfSFlloA", "woSGDFGSSDOENGTOWKLMGarld")); // "adefghklmnorstw"
