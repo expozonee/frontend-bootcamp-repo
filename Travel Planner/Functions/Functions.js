@@ -188,3 +188,118 @@ console.log(
   "Normalize Destination Ratings ==> ",
   normalizeDestinationRatings(ratings3, 0, 100)
 );
+
+// impure functions
+
+let travelDestinations;
+
+function intializeDestinations() {
+  travelDestinations = [];
+}
+intializeDestinations();
+
+function addDestination(destinationName, travelDate) {
+  if (typeof destinationName === "string" && typeof travelDate === "string") {
+    const destination = [destinationName, travelDate];
+    travelDestinations.push(destination);
+    console.log(travelDestinations);
+    return travelDestinations;
+  }
+  console.log("Only strings are allowed");
+}
+
+// addDestination("Paris", "2024-06-15");
+
+function findTravelDate(destinationName) {
+  const destination = travelDestinations.find(
+    (destination) => destination[0] === destinationName
+  );
+  if (destination) {
+    return destination[1];
+  }
+  return "Destination was not found";
+}
+
+// console.log(findTravelDate("Paris"));
+
+function updateTravelDate(destinationName, newTravelDate) {
+  const destination = travelDestinations.find(
+    (destination) => destination[0] === destinationName
+  );
+  if (destination) {
+    destination[1] = newTravelDate;
+    return destination;
+  }
+  return "Destination was not found";
+}
+
+// console.log(updateTravelDate("Paris", "2024-07-15"));
+
+function removeDestination(destinationName) {
+  const destinationIndex = travelDestinations.findIndex(
+    (destination) => destination[0] === destinationName
+  );
+  if (destinationIndex !== -1) {
+    travelDestinations.splice(destinationIndex, 1);
+    return travelDestinations;
+  }
+  return "Destination was not found";
+}
+
+// console.log(removeDestination("Paris"));
+
+function listDestinations() {
+  travelDestinations.forEach((destination) => {
+    console.log(`${destination[0]} - ${destination[1]}`);
+  });
+}
+
+travelDestinations = [];
+addDestination("Paris", "2024-06-15");
+addDestination("London", "2024-07-15");
+addDestination("Tokyo", "2024-09-15");
+
+listDestinations();
+
+function findNextDistination() {
+  const currentYear = new Date().getFullYear();
+  const currentMonth = new Date().getMonth() + 1;
+  const currentDay = new Date().getDate();
+
+  const tripsDates = travelDestinations.reduce((acc, destination) => {
+    const destinationYear = new Date(destination[1]).getFullYear();
+    const destinationMonth = new Date(destination[1]).getMonth() + 1;
+    const destinationDay = new Date(destination[1]).getDate();
+
+    if (!acc[destinationYear]) {
+      acc[destinationYear] = {};
+    }
+    if (!acc[destinationYear][destinationMonth]) {
+      acc[destinationYear][destinationMonth] = {};
+    }
+    if (!acc[destinationYear][destinationMonth][destinationDay]) {
+      acc[destinationYear][destinationMonth][destinationDay] = {};
+    }
+    acc[destinationYear][destinationMonth][destinationDay] = destination[0];
+    return acc;
+  }, {});
+
+  const destinationsCurrentYear = tripsDates[currentYear];
+
+  if (destinationsCurrentYear) {
+    const destinationsCurrentMonth = destinationsCurrentYear[currentMonth];
+
+    if (destinationsCurrentMonth) {
+      const closestDestination = Object.keys(destinationsCurrentMonth).find(
+        (day) => day >= currentDay
+      );
+
+      console.log(
+        "Next Destination: ",
+        destinationsCurrentMonth[closestDestination]
+      );
+    }
+  }
+}
+
+findNextDistination();
