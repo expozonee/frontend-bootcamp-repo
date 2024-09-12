@@ -285,7 +285,7 @@ console.log(repeat_str(5, "Hello")); // "HelloHelloHelloHelloHello"
 
 // 5.3
 
-function test(str) {
+function toCamelCase(str) {
   if (typeof str !== "string") {
     return "Please enter a string";
   }
@@ -312,7 +312,47 @@ function test(str) {
   return str;
 }
 
-console.log(test("hello-world")); // "helloWorld"
-console.log(test("hello_world")); // "helloWorld"
-console.log(test("helloWorld")); // "helloWorld"
-console.log(test("World-asdas")); // "Worldasdas"
+console.log(toCamelCase("hello-world")); // "helloWorld"
+console.log(toCamelCase("hello_world")); // "helloWorld"
+console.log(toCamelCase("helloWorld")); // "helloWorld"
+console.log(toCamelCase("World-asdas")); // "Worldasdas"
+
+// 5.4
+
+function toWeirdCase(str) {
+  if (typeof str !== "string") {
+    return "Please enter a string";
+  }
+  if (str.includes(" ")) {
+    const weirdCase = str
+      .split(" ")
+      .map((word) => {
+        return word
+          .split("")
+          .map((letter, index) => {
+            if (index % 2 === 0) {
+              return letter.toUpperCase();
+            }
+            return letter.toLowerCase();
+          })
+          .join("");
+      })
+      .join(" ");
+
+    return weirdCase;
+  }
+  const weirdCase = str
+    .split("")
+    .map((letter, index) => {
+      if (index % 2 === 0) {
+        return letter.toUpperCase();
+      }
+      return letter.toLowerCase();
+    })
+    .join("");
+  return weirdCase;
+}
+
+console.log(toWeirdCase("hello world")); // "HeLlO WoRlD"
+console.log(toWeirdCase("helloWorld")); // "HeLlOwOrLd"
+console.log(toWeirdCase("String")); // "StRiNg"
