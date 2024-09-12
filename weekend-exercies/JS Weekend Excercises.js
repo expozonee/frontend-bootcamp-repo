@@ -383,7 +383,7 @@ console.log(getInitials("Mike Smith")); // "M.S"
 
 // 5.6
 
-function test(str) {
+function maskify(str) {
   if (typeof str !== "string") {
     return "Please enter a string";
   }
@@ -395,4 +395,19 @@ function test(str) {
   return hiddenChars + lastFourChars;
 }
 
-console.log(test("Hedgdfgdfgdfgdfgdgdsello")); // "#############ello"
+console.log(maskify("Hedgdfgdfgdfgdfgdgdsello")); // "#############ello"
+
+// 5.7
+
+function test(str) {
+  return str.split(" ").reduce((acc, word, index) => {
+    if (index === 0) return word;
+    const wordLength = word.length;
+    if (wordLength < acc.length) {
+      return word;
+    }
+    return acc;
+  });
+}
+
+console.log(test("Hello World")); // "World"
