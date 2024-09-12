@@ -298,6 +298,8 @@ function findNextDistination() {
         "Next Destination: ",
         destinationsCurrentMonth[closestDestination]
       );
+    } else {
+      console.log("No upcoming trips this year");
     }
   }
 }
