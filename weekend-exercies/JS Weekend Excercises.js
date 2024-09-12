@@ -424,3 +424,30 @@ function longestWord(str) {
 }
 
 console.log(longestWord("Hello friends")); // "friends"
+
+// 6.1
+
+function accum(str) {
+  const condition = /^[a-zA-Z]+$/;
+  if (!condition.test(str)) {
+    return "String contains only alphabets";
+  }
+
+  const extendedStr = str
+    .split("")
+    .map((char, index) => {
+      if (index === 0) return char.toUpperCase();
+      return (
+        char
+          .repeat(index + 1)
+          .slice(0, 1)
+          .toUpperCase() + char.repeat(index + 1).slice(1)
+      );
+    })
+    .join("-");
+
+  return extendedStr;
+}
+
+console.log(accum("abcd")); // "A-Bb-Ccc-Dddd"
+console.log(accum("RqaEzty")); // "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
