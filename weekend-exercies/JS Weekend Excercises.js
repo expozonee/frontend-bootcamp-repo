@@ -356,3 +356,27 @@ function toWeirdCase(str) {
 console.log(toWeirdCase("hello world")); // "HeLlO WoRlD"
 console.log(toWeirdCase("helloWorld")); // "HeLlOwOrLd"
 console.log(toWeirdCase("String")); // "StRiNg"
+
+// 5.5
+
+function test(str) {
+  if (typeof str !== "string") {
+    return "Please enter a string";
+  }
+
+  if (!str.includes(" ")) {
+    return "Please enter a full name with space";
+  }
+
+  const intials = str
+    .split(" ")
+    .map((word) => {
+      return word[0].toUpperCase();
+    })
+    .join(".");
+
+  return intials;
+}
+
+console.log(test("John Doe")); // "J.D"
+console.log(test("Mike Smith")); // "M.S"
