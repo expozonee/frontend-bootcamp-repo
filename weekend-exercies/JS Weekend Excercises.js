@@ -559,3 +559,13 @@ function map(arr, callback) {
 const arr3 = [1, 2, 3, 4, 5];
 const mappedArr = map(arr3, (num) => num * 2);
 console.log(mappedArr); // [2, 4, 6, 8, 10]
+
+// 8
+
+function findPerimeter(length, width) {
+  return length * 2 + width * 2;
+}
+
+console.log(findPerimeter(8, 10)); // 36
+console.log(findPerimeter(3, 36)); // 78
+console.log(findPerimeter(4, 15)); // 38
