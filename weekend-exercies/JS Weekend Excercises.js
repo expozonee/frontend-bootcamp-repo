@@ -359,7 +359,7 @@ console.log(toWeirdCase("String")); // "StRiNg"
 
 // 5.5
 
-function test(str) {
+function getInitials(str) {
   if (typeof str !== "string") {
     return "Please enter a string";
   }
@@ -378,5 +378,5 @@ function test(str) {
   return intials;
 }
 
-console.log(test("John Doe")); // "J.D"
-console.log(test("Mike Smith")); // "M.S"
+console.log(getInitials("John Doe")); // "J.D"
+console.log(getInitials("Mike Smith")); // "M.S"
