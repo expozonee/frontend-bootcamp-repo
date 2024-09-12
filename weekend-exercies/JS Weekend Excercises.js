@@ -479,7 +479,7 @@ console.log(countDuplicates("helloo")); // 2, repeated characters are l repeated
 
 // 6.3
 
-function tteesstt(str1, str2) {
+function longest(str1, str2) {
   const combinedStr = (str1 + str2).toLowerCase();
 
   const condition = /^[a-z]+$/;
@@ -497,4 +497,32 @@ function tteesstt(str1, str2) {
   return orderedChars;
 }
 
-console.log(tteesstt("hesdfdsfgsfSFlloA", "woSGDFGSSDOENGTOWKLMGarld")); // "adefghklmnorstw"
+console.log(longest("hesdfdsfgsfSFlloA", "woSGDFGSSDOENGTOWKLMGarld")); // "adefghklmnorstw"
+
+// 6.4
+
+function isogram(str) {
+  const condition = /^[a-zA-Z]+$/;
+  if (!condition.test(str)) {
+    return "String must contains only alphabets";
+  }
+
+  const charCount = str
+    .toLowerCase()
+    .split("")
+    .reduce((acc, char) => {
+      if (acc[char]) {
+        acc[char]++;
+      } else {
+        acc[char] = 1;
+      }
+      return acc;
+    }, {});
+
+  console.log(charCount);
+
+  const haveRepeatedChars = Object.values(charCount).some((value) => value > 1);
+  return haveRepeatedChars ? "true" : "false";
+}
+
+console.log(isogram("hello")); // "String contains only alphabets"
