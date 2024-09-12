@@ -502,27 +502,60 @@ console.log(longest("hesdfdsfgsfSFlloA", "woSGDFGSSDOENGTOWKLMGarld")); // "adef
 // 6.4
 
 function isogram(str) {
-  const condition = /^[a-zA-Z]+$/;
-  if (!condition.test(str)) {
-    return "String must contains only alphabets";
-  }
-
-  const charCount = str
+  return str
     .toLowerCase()
     .split("")
-    .reduce((acc, char) => {
-      if (acc[char]) {
-        acc[char]++;
-      } else {
-        acc[char] = 1;
-      }
-      return acc;
-    }, {});
-
-  console.log(charCount);
-
-  const haveRepeatedChars = Object.values(charCount).some((value) => value > 1);
-  return haveRepeatedChars ? "true" : "false";
+    .every((char, index, arr) => arr.indexOf(char) === index);
 }
 
-console.log(isogram("hello")); // "String contains only alphabets"
+console.log(isogram("hello")); // false
+
+// 7
+
+function forEach(arr, callback) {
+  if (!Array.isArray(arr)) {
+    return "Please enter an array";
+  }
+
+  for (let i = 0; i < arr.length; i++) {
+    callback(arr[i], i, arr);
+  }
+}
+
+const arr = [1, 2, 3, 4, 5];
+forEach(arr, (num, index, arr) => {
+  console.log(num, index, arr);
+});
+
+function filter(arr, callback) {
+  if (!Array.isArray(arr)) {
+    return "Please enter an array";
+  }
+  const filteredArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (callback(arr[i], i, arr)) {
+      filteredArr.push(arr[i]);
+    }
+  }
+  return filteredArr;
+}
+
+const arr2 = [1, 2, 3, 4, 5];
+
+const filteredArr = filter(arr2, (num) => num > 3);
+console.log(filteredArr); // [4, 5]
+
+function map(arr, callback) {
+  if (!Array.isArray(arr)) {
+    return "Please enter an array";
+  }
+  const mappedArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    mappedArr.push(callback(arr[i], i, arr));
+  }
+  return mappedArr;
+}
+
+const arr3 = [1, 2, 3, 4, 5];
+const mappedArr = map(arr3, (num) => num * 2);
+console.log(mappedArr); // [2, 4, 6, 8, 10]
