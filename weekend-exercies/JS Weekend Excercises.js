@@ -451,3 +451,28 @@ function accum(str) {
 
 console.log(accum("abcd")); // "A-Bb-Ccc-Dddd"
 console.log(accum("RqaEzty")); // "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
+
+// 6.2
+
+function countDuplicates(str) {
+  const charsCount = str.split("").reduce((acc, char) => {
+    if (acc[char]) {
+      acc[char]++;
+    } else {
+      acc[char] = 1;
+    }
+    return acc;
+  }, {});
+
+  const repeatedChars = Object.entries(charsCount).filter(
+    ([key, value]) => value > 1
+  );
+
+  return repeatedChars.length > 0
+    ? `${repeatedChars.length}, repeated characters are ${repeatedChars
+        .map(([key, value]) => `${key} repeated ${value} times`)
+        .join(", ")}`
+    : "no characters repeats more than once";
+}
+
+console.log(countDuplicates("helloo")); // 2, repeated characters are l repeated 2 times, o repeated 2 times
