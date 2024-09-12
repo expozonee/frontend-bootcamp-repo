@@ -399,9 +399,8 @@ console.log(maskify("Hedgdfgdfgdfgdfgdgdsello")); // "#############ello"
 
 // 5.7
 
-function test(str) {
-  return str.split(" ").reduce((acc, word, index) => {
-    if (index === 0) return word;
+function shortestWord(str) {
+  return str.split(" ").reduce((acc, word) => {
     const wordLength = word.length;
     if (wordLength < acc.length) {
       return word;
@@ -410,4 +409,18 @@ function test(str) {
   });
 }
 
-console.log(test("Hello World")); // "World"
+console.log(shortestWord("Hi, how are you?")); // "Hi"
+
+// 5.8
+
+function longestWord(str) {
+  return str.split(" ").reduce((acc, word) => {
+    const wordLength = word.length;
+    if (wordLength > acc.length) {
+      return word;
+    }
+    return acc;
+  });
+}
+
+console.log(longestWord("Hello friends")); // "friends"
