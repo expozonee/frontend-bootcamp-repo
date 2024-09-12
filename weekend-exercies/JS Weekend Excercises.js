@@ -380,3 +380,19 @@ function getInitials(str) {
 
 console.log(getInitials("John Doe")); // "J.D"
 console.log(getInitials("Mike Smith")); // "M.S"
+
+// 5.6
+
+function test(str) {
+  if (typeof str !== "string") {
+    return "Please enter a string";
+  }
+
+  const lastFourChars = str.slice(str.length - 4, str.length);
+  const rest = str.slice(0, str.length - 4);
+  const hiddenChars = rest.replace(/./g, "#");
+
+  return hiddenChars + lastFourChars;
+}
+
+console.log(test("Hedgdfgdfgdfgdfgdgdsello")); // "#############ello"
