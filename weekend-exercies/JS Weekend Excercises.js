@@ -247,11 +247,11 @@ console.log("====================================");
 
 // 4.1
 
-function fibbonacci(n) {
+function fibonacci(n) {
   if (!Number.isInteger(n)) {
     return "Please enter an integer";
   }
-  if (n < 1) {
+  if (n < 0) {
     return "Please enter a positive integer";
   }
 
@@ -267,10 +267,10 @@ function fibbonacci(n) {
 }
 
 console.log("=============== 4.1 ================");
-console.log(fibbonacci(0)); // []
-console.log(fibbonacci(1)); // [0]
-console.log(fibbonacci(5)); // [0, 1, 1, 2, 3]
-console.log(fibbonacci(10)); // [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
+console.log(fibonacci(0)); // []
+console.log(fibonacci(1)); // [0]
+console.log(fibonacci(5)); // [0, 1, 1, 2, 3]
+console.log(fibonacci(10)); // [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
 console.log("====================================");
 
 // 4.2
@@ -279,7 +279,7 @@ function tribonacci(n) {
   if (!Number.isInteger(n)) {
     return "Please enter an integer";
   }
-  if (n < 1) {
+  if (n < 0) {
     return "Please enter a positive integer";
   }
 
