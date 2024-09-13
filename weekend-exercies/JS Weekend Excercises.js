@@ -668,7 +668,7 @@ function forEach(arr, callback) {
   }
 }
 console.log("                                    ");
-console.log("=============== 7 ================");
+console.log("================ 7 =================");
 
 const arr = [1, 2, 3, 4, 5];
 forEach(arr, (num, index, arr) => {
@@ -717,7 +717,7 @@ function findPerimeter(length, width) {
 }
 
 console.log("                                    ");
-console.log("=============== 8 ================");
+console.log("================ 8 =================");
 console.log(findPerimeter(8, 10)); // 36
 console.log(findPerimeter(3, 36)); // 78
 console.log(findPerimeter(4, 15)); // 38
