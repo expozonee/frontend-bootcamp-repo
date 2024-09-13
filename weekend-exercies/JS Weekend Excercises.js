@@ -201,24 +201,28 @@ function numOfPeopleInBus(busStops) {
     return "Please enter an array with at least 1 element";
   }
 
+  const isSubElementArray = busStops.every((element) => Array.isArray(element));
+  if (!isSubElementArray) return "Please enter an array of arrays";
+
+  const isSubArrayValid = busStops.every((element) => element.length === 2);
+  if (!isSubArrayValid) return "Sub arrays length must be 2";
+
+  const isSubArrayIntegers = busStops.every((element) =>
+    element.every(Number.isInteger)
+  );
+  if (!isSubArrayIntegers) return "Sub arrays must contain only integers";
+
+  const isSubArrayPositive = busStops.every((element) =>
+    element.every((subElement) => subElement >= 0)
+  );
+  if (!isSubArrayPositive)
+    return "Sub arrays must contain only positive integers";
+
   const initialPeople = 0;
   let peopleGetIn = 0;
   let peopleGetOut = 0;
 
   busStops.forEach((busStop) => {
-    if (!Array.isArray(busStop)) {
-      return "Please enter an array of arrays";
-    }
-    if (busStop.length !== 2) {
-      return "Please enter an array with 2 elements";
-    }
-    if (!busStop.every((el) => Number.isInteger(el))) {
-      return "Please enter an array with only integers";
-    }
-
-    if (busStop[0] < 0 || busStop[1] < 0) {
-      return "Please enter positive integers";
-    }
     peopleGetIn += busStop[0];
     peopleGetOut += busStop[1];
   });
