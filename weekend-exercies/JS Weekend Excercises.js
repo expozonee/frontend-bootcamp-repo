@@ -246,7 +246,7 @@ console.log(
     [4, 9],
   ])
 ); // 10
-console.log(numOfPeopleInBus([[8, 0], [4, 2], [6, 1], [4]])); // Please enter an array with 2 elements
+console.log(numOfPeopleInBus([[8, 0], [4, 2], [6, 1], [4]])); // Sub arrays length must be 2
 console.log("====================================");
 
 // 4.1
