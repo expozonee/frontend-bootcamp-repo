@@ -620,7 +620,7 @@ function longest(str1, str2) {
   const condition = /^[a-z]+$/;
 
   if (!condition.test(combinedStr.toLowerCase())) {
-    return "String must contain only lowercase alphabet characters";
+    return "String must contain only alphabet characters";
   }
 
   let uniqueletters = combinedStr
