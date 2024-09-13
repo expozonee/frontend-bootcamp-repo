@@ -46,7 +46,7 @@ console.log("                                    ");
 
 // 2.2
 
-function binaryToIntger(arr) {
+function binaryToInteger(arr) {
   if (!arr.every((binaryNum) => binaryNum === 0 || binaryNum === 1)) {
     return "Please enter an array with only 0s and 1s";
   }
@@ -55,8 +55,8 @@ function binaryToIntger(arr) {
 
 console.log("                                    ");
 console.log("=============== 2.2 ================");
-console.log(binaryToIntger([1, 0, 1, 0])); // 10
-console.log(binaryToIntger([1, 1, 0, 0, 1, 0])); // 50
+console.log(binaryToInteger([1, 0, 1, 0])); // 10
+console.log(binaryToInteger([1, 1, 0, 0, 1, 0])); // 50
 console.log("====================================");
 console.log("                                    ");
 
