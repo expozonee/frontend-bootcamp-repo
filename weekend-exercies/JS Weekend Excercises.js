@@ -227,8 +227,8 @@ function numOfPeopleInBus(busStops) {
   const isSubArrayValid = busStops.every((arr) => arr.length === 2);
   if (!isSubArrayValid) return "Sub arrays length must be 2";
 
-  const isSubArrayIntegers = busStops.every((num) =>
-    num.every(Number.isInteger)
+  const isSubArrayIntegers = busStops.every((arr) =>
+    arr.every(Number.isInteger)
   );
   if (!isSubArrayIntegers) return "Sub arrays must contain only integers";
 
