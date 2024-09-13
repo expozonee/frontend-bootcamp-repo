@@ -35,7 +35,6 @@ function sumLowestTwoNumbers(arr) {
 }
 
 console.log("=============== 2.1 ================");
-
 console.log(sumLowestTwoNumbers([2, 9, 6, 10, -1])); // 8
 console.log(sumLowestTwoNumbers([2, 9, 6, 10, -1, 3])); // 5
 console.log("====================================");
