@@ -26,7 +26,7 @@ function sumLowestTwoNumbers(arr) {
   const minPositiveNumOfInt = 4;
   const numOfPositiveInt = arr.filter((el) => Number.isInteger(el) && el > 0);
   if (numOfPositiveInt.length < minPositiveNumOfInt) {
-    return "Please enter an array with at least 4 integers";
+    return `Please enter an array with at least ${minPositiveNumOfInt} positive integers`;
   }
   let sortedArr = arr.sort((a, b) => a - b);
   const positiveNumArr = sortedArr.filter((el) => el > 0);
