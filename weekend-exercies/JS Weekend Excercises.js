@@ -19,19 +19,21 @@ console.log("                                    ");
 // 2.1
 
 function sumLowestTwoNumbers(arr) {
-  if (!arr.every((el) => typeof el === "number")) {
+  if (!arr.every((num) => typeof num === "number")) {
     return "Please enter an array with only numbers";
   }
   if (arr.length < 2) {
     return "Please enter an array with at least 2 numbers";
   }
   const minPositiveNumOfInt = 4;
-  const numOfPositiveInt = arr.filter((el) => Number.isInteger(el) && el > 0);
+  const numOfPositiveInt = arr.filter(
+    (num) => Number.isInteger(num) && num > 0
+  );
   if (numOfPositiveInt.length < minPositiveNumOfInt) {
     return `Please enter an array with at least ${minPositiveNumOfInt} positive integers`;
   }
   let sortedArr = arr.sort((a, b) => a - b);
-  const positiveNumArr = sortedArr.filter((el) => el > 0);
+  const positiveNumArr = sortedArr.filter((num) => num > 0);
   return positiveNumArr[0] + positiveNumArr[1];
 }
 
@@ -45,7 +47,7 @@ console.log("                                    ");
 // 2.2
 
 function binaryToIntger(arr) {
-  if (!arr.every((el) => el === 0 || el === 1)) {
+  if (!arr.every((binaryNum) => binaryNum === 0 || binaryNum === 1)) {
     return "Please enter an array with only 0s and 1s";
   }
   return parseInt(arr.join(""), 2);
@@ -87,7 +89,7 @@ function findUnique(arr) {
   if (arr.length < 3) {
     return "Please enter an array with at least 3 elements";
   }
-  return arr.find((el) => arr.indexOf(el) === arr.lastIndexOf(el));
+  return arr.find((num) => arr.indexOf(num) === arr.lastIndexOf(num));
 }
 
 console.log("                                    ");
