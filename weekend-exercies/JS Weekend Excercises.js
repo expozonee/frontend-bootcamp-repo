@@ -8,9 +8,12 @@ function booleanAsString(b) {
   else return "No";
 }
 
+console.log("=============== 1.1 ================");
+
 console.log(booleanAsString(true)); // "Yes"
 console.log(booleanAsString(false)); // "No"
 console.log(booleanAsString("true")); // "Please enter a boolean value"
+console.log("====================================");
 
 // 2.1
 
@@ -31,7 +34,11 @@ function sumLowestTwoNumbers(arr) {
   return positiveNumArr[0] + positiveNumArr[1];
 }
 
+console.log("=============== 2.1 ================");
+
 console.log(sumLowestTwoNumbers([2, 9, 6, 10, -1])); // 8
+console.log(sumLowestTwoNumbers([2, 9, 6, 10, -1, 0])); // 2
+console.log("====================================");
 
 // 2.2
 
@@ -42,8 +49,10 @@ function binaryToIntger(arr) {
   return parseInt(arr.join(""), 2);
 }
 
+console.log("=============== 2.2 ================");
 console.log(binaryToIntger([1, 0, 1, 0])); // 10
 console.log(binaryToIntger([1, 1, 0, 0, 1, 0])); // 50
+console.log("====================================");
 
 // 2.3
 
@@ -57,9 +66,11 @@ function findNextSquare(int) {
   return Math.pow(Math.sqrt(int) + 1, 2);
 }
 
+console.log("=============== 2.3 ================");
 console.log(findNextSquare(121)); // 144
 console.log(findNextSquare(625)); // 676
 console.log(findNextSquare(114)); // -1
+console.log("====================================");
 
 // 2.4
 
@@ -73,9 +84,11 @@ function findUnique(arr) {
   return arr.find((el) => arr.indexOf(el) === arr.lastIndexOf(el));
 }
 
+console.log("=============== 2.4 ================");
 console.log(findUnique([1, 1, 2])); // 2
 console.log(findUnique([1, 1, 1, 2, 1, 1])); // 2
 console.log(findUnique([1, 2, 2, 2, 2, 2])); // 1
+console.log("====================================");
 
 // 2.5
 
@@ -92,7 +105,11 @@ function summation(num) {
   );
 }
 
+console.log("=============== 2.5 ================");
 console.log(summation(5)); // 15
+console.log(summation(8)); // 36
+console.log(summation(10)); // 55
+console.log("====================================");
 
 // 2.6
 
@@ -106,12 +123,14 @@ function findCentury(year) {
   return Math.ceil(year / 100);
 }
 
+console.log("=============== 2.6 ================");
 console.log(findCentury(1705)); // 18
 console.log(findCentury(1900)); // 19
 console.log(findCentury(1601)); // 17
 console.log(findCentury(2000)); // 20
 console.log(findCentury(2001)); // 21
 console.log(findCentury(89)); // 1
+console.log("====================================");
 
 // 2.7
 
@@ -134,9 +153,13 @@ function basicMath(op, num1, num2) {
   }
 }
 
+console.log("=============== 2.7 ================");
 console.log(basicMath("+", 4, -10)); // -6
 console.log(basicMath("-", 15, -18)); // 33
 console.log(basicMath("*", 5, 5)); // 25
+console.log(basicMath("/", 49, 7)); // 7
+console.log(basicMath("x", 49, 7)); // Please enter a valid operator
+console.log("====================================");
 
 // 3.1
 
@@ -157,13 +180,18 @@ function nb_year(p0, percent, aug, p) {
   let years = 0;
   let population = p0;
   while (population < p) {
-    population += population * (percent / 100) + aug;
+    population += Math.floor(population * (percent / 100) + aug);
     years++;
   }
   return years;
 }
 
+console.log("=============== 3.1 ================");
 console.log(nb_year(1500, 5, 100, 5000)); // 15
+console.log(nb_year(1500000, 2.5, 10000, 2000000)); // Please enter integers
+console.log(nb_year(1500000, 2, 10000, 2000000)); // 10
+console.log(nb_year(1500000, 2, 10000, 2000000.5)); // Please enter integers
+console.log("====================================");
 
 // 3.2
 
@@ -200,6 +228,7 @@ function numOfPeopleInBus(busStops) {
   return initialPeople + peopleGetIn - peopleGetOut;
 }
 
+console.log("=============== 3.2 ================");
 console.log(
   numOfPeopleInBus([
     [10, 0],
@@ -207,6 +236,16 @@ console.log(
     [5, 8],
   ])
 ); // 5
+console.log(
+  numOfPeopleInBus([
+    [8, 0],
+    [4, 2],
+    [6, 1],
+    [4, 9],
+  ])
+); // 10
+console.log(numOfPeopleInBus([[8, 0], [4, 2], [6, 1], [4]])); // Please enter an array with 2 elements
+console.log("====================================");
 
 // 4.1
 
@@ -229,7 +268,12 @@ function fibbonacci(n) {
   return fibArr;
 }
 
+console.log("=============== 4.1 ================");
+console.log(fibbonacci(0)); // []
+console.log(fibbonacci(1)); // [0]
+console.log(fibbonacci(5)); // [0, 1, 1, 2, 3]
 console.log(fibbonacci(10)); // [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
+console.log("====================================");
 
 // 4.2
 
@@ -244,6 +288,7 @@ function tribonacci(n) {
   if (n === 0) return [];
   if (n === 1) return [0];
   if (n === 2) return [0, 0];
+  if (n === 3) return [0, 0, 1];
 
   let tribArr = [0, 0, 1];
   for (let i = 3; i < n; i++) {
@@ -252,7 +297,14 @@ function tribonacci(n) {
   return tribArr;
 }
 
+console.log("=============== 4.2 ================");
+console.log(tribonacci(0)); // []
+console.log(tribonacci(1)); // [0]
+console.log(tribonacci(2)); // [0, 0]
+console.log(tribonacci(3)); // [0, 0, 1]
+console.log(tribonacci(5)); // [0, 0, 1, 1, 2]
 console.log(tribonacci(10)); // [0, 0, 1, 1, 2, 4, 7, 13, 24, 44]
+console.log("====================================");
 
 // 5.1
 
@@ -263,8 +315,11 @@ function trimFirstLastString(str) {
   return str.slice(1, -1);
 }
 
+console.log("=============== 5.1 ================");
 console.log(trimFirstLastString("Hello")); // "ell"
 console.log(trimFirstLastString("World")); // "orl"
+console.log(trimFirstLastString(123)); // "Please enter a string"
+console.log("====================================");
 
 // 5.2
 
@@ -281,7 +336,11 @@ function repeat_str(n, str) {
   return str.repeat(n);
 }
 
+console.log("=============== 5.2 ================");
 console.log(repeat_str(5, "Hello")); // "HelloHelloHelloHelloHello"
+console.log(repeat_str(3, "World")); // "WorldWorldWorld"
+console.log(repeat_str(3, 123)); // "Please enter a string"
+console.log("====================================");
 
 // 5.3
 
@@ -312,10 +371,13 @@ function toCamelCase(str) {
   return str;
 }
 
+console.log("=============== 5.3 ================");
 console.log(toCamelCase("hello-world")); // "helloWorld"
 console.log(toCamelCase("hello_world")); // "helloWorld"
 console.log(toCamelCase("helloWorld")); // "helloWorld"
-console.log(toCamelCase("World-asdas")); // "Worldasdas"
+console.log(toCamelCase("World-pizza")); //  "WorldPizza"
+console.log(toCamelCase(123)); // "Please enter a string"
+console.log("====================================");
 
 // 5.4
 
@@ -353,9 +415,12 @@ function toWeirdCase(str) {
   return weirdCase;
 }
 
+console.log("=============== 5.4 ================");
 console.log(toWeirdCase("hello world")); // "HeLlO WoRlD"
 console.log(toWeirdCase("helloWorld")); // "HeLlOwOrLd"
 console.log(toWeirdCase("String")); // "StRiNg"
+console.log(toWeirdCase(65465)); // "Please enter a string"
+console.log("====================================");
 
 // 5.5
 
@@ -378,8 +443,12 @@ function getInitials(str) {
   return intials;
 }
 
+console.log("=============== 5.5 ================");
 console.log(getInitials("John Doe")); // "J.D"
 console.log(getInitials("Mike Smith")); // "M.S"
+console.log(getInitials("Mike")); // "Please enter a full name with space"
+console.log(getInitials(6548)); // "Please enter a string"
+console.log("====================================");
 
 // 5.6
 
@@ -395,7 +464,12 @@ function maskify(str) {
   return hiddenChars + lastFourChars;
 }
 
+console.log("=============== 5.6 ================");
 console.log(maskify("Hedgdfgdfgdfgdfgdgdsello")); // "#############ello"
+console.log(maskify("123456789")); // "#####6789"
+console.log(maskify("1234")); // "1234"
+console.log(maskify(1234)); // "Please enter a string"
+console.log("====================================");
 
 // 5.7
 
@@ -409,7 +483,10 @@ function shortestWord(str) {
   });
 }
 
+console.log("=============== 5.7 ================");
 console.log(shortestWord("Hi, how are you?")); // "Hi"
+console.log(shortestWord("Hello friends")); // "Hello"
+console.log("====================================");
 
 // 5.8
 
@@ -423,14 +500,17 @@ function longestWord(str) {
   });
 }
 
+console.log("=============== 5.8 ================");
 console.log(longestWord("Hello friends")); // "friends"
+console.log(longestWord("Pizza is delicious")); //  "delicious"
+console.log("====================================");
 
 // 6.1
 
 function accum(str) {
   const condition = /^[a-zA-Z]+$/;
   if (!condition.test(str)) {
-    return "String contains only alphabets";
+    return "String must contains only alphabets";
   }
 
   const extendedStr = str
@@ -449,8 +529,11 @@ function accum(str) {
   return extendedStr;
 }
 
+console.log("=============== 6.1 ================");
 console.log(accum("abcd")); // "A-Bb-Ccc-Dddd"
 console.log(accum("RqaEzty")); // "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
+console.log(accum("1234")); // "String must contains only alphabets"
+console.log("====================================");
 
 // 6.2
 
@@ -475,7 +558,11 @@ function countDuplicates(str) {
     : "no characters repeats more than once";
 }
 
+console.log("=============== 6.2 ================");
 console.log(countDuplicates("helloo")); // 2, repeated characters are l repeated 2 times, o repeated 2 times
+console.log(countDuplicates("pizza")); // 2, repeated characters are z repeated 2 times
+console.log(countDuplicates("1234")); // no characters repeats more than once
+console.log("====================================");
 
 // 6.3
 
@@ -497,7 +584,10 @@ function longest(str1, str2) {
   return orderedChars;
 }
 
+console.log("=============== 6.3 ================");
 console.log(longest("hesdfdsfgsfSFlloA", "woSGDFGSSDOENGTOWKLMGarld")); // "adefghklmnorstw"
+console.log(longest("1234", "pizza")); // "String must contain only lowercase alphabet characters"
+console.log("====================================");
 
 // 6.4
 
@@ -508,7 +598,11 @@ function isogram(str) {
     .every((char, index, arr) => arr.indexOf(char) === index);
 }
 
+console.log("=============== 6.4 ================");
 console.log(isogram("hello")); // false
+console.log(isogram("world")); // true
+console.log(isogram("pizza")); // false
+console.log("====================================");
 
 // 7
 
@@ -521,6 +615,7 @@ function forEach(arr, callback) {
     callback(arr[i], i, arr);
   }
 }
+console.log("=============== 7 ================");
 
 const arr = [1, 2, 3, 4, 5];
 forEach(arr, (num, index, arr) => {
@@ -559,6 +654,7 @@ function map(arr, callback) {
 const arr3 = [1, 2, 3, 4, 5];
 const mappedArr = map(arr3, (num) => num * 2);
 console.log(mappedArr); // [2, 4, 6, 8, 10]
+console.log("====================================");
 
 // 8
 
@@ -566,6 +662,8 @@ function findPerimeter(length, width) {
   return length * 2 + width * 2;
 }
 
+console.log("=============== 8 ================");
 console.log(findPerimeter(8, 10)); // 36
 console.log(findPerimeter(3, 36)); // 78
 console.log(findPerimeter(4, 15)); // 38
+console.log("====================================");
