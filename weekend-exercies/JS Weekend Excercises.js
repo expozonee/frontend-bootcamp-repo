@@ -9,7 +9,6 @@ function booleanAsString(b) {
 }
 
 console.log("=============== 1.1 ================");
-
 console.log(booleanAsString(true)); // "Yes"
 console.log(booleanAsString(false)); // "No"
 console.log(booleanAsString("true")); // "Please enter a boolean value"
