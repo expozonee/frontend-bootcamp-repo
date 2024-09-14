@@ -241,15 +241,15 @@ function numOfPeopleInBus(busStops) {
     return "Sub arrays must contain only positive integers";
 
   const initialPeople = 0;
-  let peopleGetIn = 0;
-  let peopleGetOut = 0;
+  let totalPeopleGetIn = 0;
+  let totalPeopleGetOut = 0;
 
   busStops.forEach((busStop) => {
-    peopleGetIn += busStop[0];
-    peopleGetOut += busStop[1];
+    totalPeopleGetIn += busStop[0];
+    totalPeopleGetOut += busStop[1];
   });
 
-  return initialPeople + peopleGetIn - peopleGetOut;
+  return initialPeople + totalPeopleGetIn - totalPeopleGetOut;
 }
 
 console.log("                                    ");
