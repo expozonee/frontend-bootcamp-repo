@@ -110,9 +110,11 @@ function summation(num) {
     return "Please enter a positive integer";
   }
 
-  return Array.from({ length: num + 1 }, (_, i) => i).reduce(
-    (acc, curr) => acc + curr
-  );
+  let summation = 0;
+  for (let i = 1; i <= num; i++) {
+    summation += i;
+  }
+  return summation;
 }
 
 console.log("                                    ");
