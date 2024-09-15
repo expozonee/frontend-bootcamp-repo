@@ -383,21 +383,36 @@ function toCamelCase(str) {
     return "Please enter a string";
   }
 
-  if (!str.includes("-") && !str.includes("_")) {
+  const trimmedStr = str.trim();
+
+  if (!trimmedStr.includes("-") && !trimmedStr.includes("_")) {
     return "Please enter a string with - or _ in the middle";
   }
 
   if (
-    str.indexOf("-") === 0 ||
-    str.indexOf("-") === str.length - 1 ||
-    str.indexOf("_") === 0 ||
-    str.indexOf("_") === str.length - 1
+    trimmedStr.indexOf("-") === 0 ||
+    trimmedStr.lastIndexOf("-") === trimmedStr.length - 1 ||
+    trimmedStr.indexOf("_") === 0 ||
+    trimmedStr.lastIndexOf("_") === trimmedStr.length - 1
   ) {
     return "Please enter a string with - or _ in the middle";
   }
 
-  if (str.includes("-")) {
-    const camelCase = str
+  if (trimmedStr.includes("-") && trimmedStr.includes("_")) {
+    return "Please enter a string with - or _ in the middle";
+  }
+
+  if (trimmedStr.includes("-")) {
+    const cleanedStr = trimmedStr.replace(/-{2,}/g, "-");
+
+    const firstWord = cleanedStr.split("-")[0];
+    const secondWord = cleanedStr.split("-")[1];
+
+    if (firstWord.length === 1 || secondWord.length === 1) {
+      return "Words must have more than one character";
+    }
+
+    const camelCase = cleanedStr
       .split("-")
       .map((word, index) => {
         if (index === 0) return word;
@@ -406,8 +421,17 @@ function toCamelCase(str) {
       .join("");
     return camelCase;
   }
-  if (str.includes("_")) {
-    const camelCase = str
+  if (trimmedStr.includes("_")) {
+    const cleanedStr = trimmedStr.replace(/_{2,}/g, "_");
+
+    const firstWord = cleanedStr.split("_")[0];
+    const secondWord = cleanedStr.split("_")[1];
+
+    if (firstWord.length === 1 || secondWord.length === 1) {
+      return "Words must have more than one character";
+    }
+
+    const camelCase = cleanedStr
       .split("_")
       .map((word, index) => {
         if (index === 0) return word;
@@ -429,6 +453,13 @@ console.log(toCamelCase("-hello")); // "Please enter a string with - or _ in the
 console.log(toCamelCase("hello-")); // "Please enter a string with - or _ in the middle"
 console.log(toCamelCase("_hello")); // "Please enter a string with - or _ in the middle"
 console.log(toCamelCase("hello_")); // "Please enter a string with - or _ in the middle"
+console.log(toCamelCase("hello-_world")); // "Please enter a string with only one of either - or _ in the middle"
+console.log(toCamelCase("hello-_world-")); // "Please enter a string with only one of either - or _ in the middle"
+console.log(toCamelCase("hello--world--")); // "Please enter a string with only one of either - or _ in the middle"
+console.log(toCamelCase("hello__world__")); // "Please enter a string with only one of either - or _ in the middle"
+console.log(toCamelCase("h-w")); // "Words must have more than one character"
+console.log(toCamelCase("h_w")); // "Words must have more than one character"
+console.log(toCamelCase("hello------world--pizza")); // "helloWorldPizza"
 console.log("====================================");
 console.log("                                    ");
 
@@ -438,7 +469,20 @@ function toWeirdCase(str) {
   if (typeof str !== "string") {
     return "Please enter a string";
   }
-  if (str.includes(" ")) {
+
+  const trimmedStr = str.trim();
+  const cleanedStr = trimmedStr.replace(/-{2,}/g, "").replace(/_{2,}/g, "");
+
+  if (
+    cleanedStr.indexOf("-") === 0 ||
+    cleanedStr.lastIndexOf("-") === cleanedStr.length - 1 ||
+    cleanedStr.indexOf("_") === 0 ||
+    cleanedStr.lastIndexOf("_") === cleanedStr.length - 1
+  ) {
+    return "'-' or '_' must be in the middle";
+  }
+
+  if (cleanedStr.includes(" ")) {
     const weirdCase = str
       .split(" ")
       .map((word) => {
@@ -456,7 +500,7 @@ function toWeirdCase(str) {
 
     return weirdCase;
   }
-  const weirdCase = str
+  const weirdCase = cleanedStr
     .split("")
     .map((letter, index) => {
       if (index % 2 === 0) {
@@ -472,6 +516,10 @@ console.log("                                    ");
 console.log("=============== 5.4 ================");
 console.log(toWeirdCase("hello world")); // "HeLlO WoRlD"
 console.log(toWeirdCase("helloWorld")); // "HeLlOwOrLd"
+console.log(toWeirdCase("hello-world")); // "HeLlO-WoRlD"
+console.log(toWeirdCase("hello_world")); // "HeLlO_WoRlD"
+console.log(toWeirdCase("-hello")); // "'-' or '_' must be in the middle"
+console.log(toWeirdCase("hello--world--")); // "HeLlOwOrLd"
 console.log(toWeirdCase("String")); // "StRiNg"
 console.log(toWeirdCase(65465)); // "Please enter a string"
 console.log("====================================");
