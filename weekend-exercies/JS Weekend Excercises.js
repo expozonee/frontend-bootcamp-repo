@@ -399,7 +399,7 @@ function toCamelCase(str) {
   }
 
   if (trimmedStr.includes("-") && trimmedStr.includes("_")) {
-    return "Please enter a string with - or _ in the middle";
+    return "Please enter a string with only one of either - or _ in the middle";
   }
 
   if (trimmedStr.includes("-")) {
