@@ -405,10 +405,11 @@ function toCamelCase(str) {
   if (trimmedStr.includes("-")) {
     const cleanedStr = trimmedStr.replace(/-{2,}/g, "-");
 
-    const firstWord = cleanedStr.split("-")[0];
-    const secondWord = cleanedStr.split("-")[1];
+    const isWordMoreThanOneChar = cleanedStr
+      .split("-")
+      .every((word) => word.length > 1);
 
-    if (firstWord.length === 1 || secondWord.length === 1) {
+    if (!isWordMoreThanOneChar) {
       return "Words must have more than one character";
     }
 
@@ -424,10 +425,11 @@ function toCamelCase(str) {
   if (trimmedStr.includes("_")) {
     const cleanedStr = trimmedStr.replace(/_{2,}/g, "_");
 
-    const firstWord = cleanedStr.split("_")[0];
-    const secondWord = cleanedStr.split("_")[1];
+    const isWordMoreThanOneChar = cleanedStr
+      .split("_")
+      .every((word) => word.length > 1);
 
-    if (firstWord.length === 1 || secondWord.length === 1) {
+    if (!isWordMoreThanOneChar) {
       return "Words must have more than one character";
     }
 
@@ -457,8 +459,8 @@ console.log(toCamelCase("hello-_world")); // "Please enter a string with only on
 console.log(toCamelCase("hello-_world-")); // "Please enter a string with only one of either - or _ in the middle"
 console.log(toCamelCase("hello--world--")); // "Please enter a string with only one of either - or _ in the middle"
 console.log(toCamelCase("hello__world__")); // "Please enter a string with only one of either - or _ in the middle"
-console.log(toCamelCase("h-w")); // "Words must have more than one character"
-console.log(toCamelCase("h_w")); // "Words must have more than one character"
+console.log(toCamelCase("h-w-p")); // "Words must have more than one character"
+console.log(toCamelCase("h_w_p")); // "Words must have more than one character"
 console.log(toCamelCase("hello------world--pizza")); // "helloWorldPizza"
 console.log("====================================");
 console.log("                                    ");
@@ -483,7 +485,7 @@ function toWeirdCase(str) {
   }
 
   if (cleanedStr.includes(" ")) {
-    const weirdCase = str
+    const weirdCase = cleanedStr
       .split(" ")
       .map((word) => {
         return word
@@ -514,7 +516,7 @@ function toWeirdCase(str) {
 
 console.log("                                    ");
 console.log("=============== 5.4 ================");
-console.log(toWeirdCase("hello world")); // "HeLlO WoRlD"
+console.log(toWeirdCase("hello world--pizza")); // "HeLlO WoRlDpIzZa"
 console.log(toWeirdCase("helloWorld")); // "HeLlOwOrLd"
 console.log(toWeirdCase("hello-world")); // "HeLlO-WoRlD"
 console.log(toWeirdCase("hello_world")); // "HeLlO_WoRlD"
