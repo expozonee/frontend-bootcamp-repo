@@ -382,6 +382,20 @@ function toCamelCase(str) {
   if (typeof str !== "string") {
     return "Please enter a string";
   }
+
+  if (!str.includes("-") && !str.includes("_")) {
+    return "Please enter a string with - or _";
+  }
+
+  if (
+    str.indexOf("-") === 0 ||
+    str.indexOf("-") === str.length - 1 ||
+    str.indexOf("_") === 0 ||
+    str.indexOf("_") === str.length - 1
+  ) {
+    return "Please enter a valid string with - or _ in the middle";
+  }
+
   if (str.includes("-")) {
     const camelCase = str
       .split("-")
@@ -402,16 +416,19 @@ function toCamelCase(str) {
       .join("");
     return camelCase;
   }
-  return str;
 }
 
 console.log("                                    ");
 console.log("=============== 5.3 ================");
 console.log(toCamelCase("hello-world")); // "helloWorld"
 console.log(toCamelCase("hello_world")); // "helloWorld"
-console.log(toCamelCase("helloWorld")); // "helloWorld"
+console.log(toCamelCase("helloWorld")); // "Please enter a string with - or _"
 console.log(toCamelCase("World-pizza")); //  "WorldPizza"
 console.log(toCamelCase(123)); // "Please enter a string"
+console.log(toCamelCase("-hello")); // "Please enter a valid string with - or _ in the middle"
+console.log(toCamelCase("hello-")); // "Please enter a valid string with - or _ in the middle"
+console.log(toCamelCase("_hello")); // "Please enter a valid string with - or _ in the middle"
+console.log(toCamelCase("hello_")); // "Please enter a valid string with - or _ in the middle"
 console.log("====================================");
 console.log("                                    ");
 
