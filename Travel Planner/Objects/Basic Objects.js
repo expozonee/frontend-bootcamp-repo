@@ -165,3 +165,14 @@ const destinationAwards = {
   "Eiffel Tower": "Most Photographed",
   Colosseum: "Most Iconic",
 };
+
+function traverseObj(obj) {
+  return Object.entries(obj).reduce((a, [key, value]) => {
+    return {
+      ...a,
+      [value]: [...(a[value] || []), key],
+    };
+  }, {});
+}
+
+console.log(traverseObj(destinationAwards));
