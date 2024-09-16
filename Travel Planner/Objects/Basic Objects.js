@@ -59,6 +59,24 @@ function averageVisitorsOfAllDestinations(arr) {
 }
 console.log(averageVisitorsOfAllDestinations(destinations)); // 8500000
 
+// 5
+
+const mergedDestinations = {
+  ...destinations[0],
+  ...destinations[1],
+};
+console.log(mergedDestinations); // {name: "Great Wall of China", details: {…}}
+
+Object.freeze(destinations[0]);
+destinations[0].name = "Colosseum";
+console.log(destinations[0].name); // Eiffel Tower
+Object.seal(destinations[1]);
+destinations[1].name = "Machu Picchu";
+console.log(destinations[1].name); // Machu Picchu
+
+Object.isFrozen(destinations[0]) && console.log("Frozen"); // Frozen
+Object.isSealed(destinations[1]) && console.log("Sealed"); // Sealed
+
 // 6
 const destinationDetails = {
   name: "Machu Picchu",
@@ -66,6 +84,12 @@ const destinationDetails = {
   yearVisited: 2019,
   ratings: [9, 8.5, 9, 9.5],
 };
+
+function printDestinationKeysAndValues(obj) {
+  return [{ proprties: Object.keys(obj), values: Object.values(obj) }];
+}
+
+console.log(printDestinationKeysAndValues(destinationDetails));
 
 // 7
 const destinationRatings = {
