@@ -99,6 +99,24 @@ const destinationRatings = {
   Colosseum: 6.5,
 };
 
+function IncrementRating(obj) {
+  const objectAsArray = Object.entries(obj);
+
+  const lessThanSeven = objectAsArray.filter(([key, value]) => value < 7);
+  if (lessThanSeven.length === 0) {
+    return "All ratings are 7 or higher";
+  }
+
+  const incremented = lessThanSeven.map(([key, value]) => [key, (value += 1)]);
+  const incrementedAsObject = Object.fromEntries(incremented);
+
+  obj = { ...obj, ...incrementedAsObject };
+
+  return obj;
+}
+
+console.log(IncrementRating(destinationRatings));
+
 // 8
 const destinations2 = {
   1: { name: "Machu Picchu", yearVisited: 2019, rating: 9 },
