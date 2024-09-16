@@ -25,6 +25,21 @@ console.log(destination["activities"][1]); // shopping
 console.log(destination.landmarks[0].name); // Tokyo Tower
 console.log(destination["landmarks"][0]["name"]); // Tokyo Tower
 
+// 3
+
+destination.yearVisited = 2020;
+console.log(destination.yearVisited); // 2020
+destination.ratings.push(9.5);
+console.log(destination.ratings); // [9, 8.5, 9.5, 9.5]
+console.log(destination.getAverageRating()); // 9.125
+delete destination.country;
+console.log(destination); // {name: "Tokyo", yearVisited: 2020, activities: Array(3), ratings: Array(4), getAverageRating: ƒ}
+destination.landmarks[0].description = "Iconic Landmark";
+console.log(destination.landmarks[0].description); // Iconic Landmark
+destination["landmarks"][1]["description"] = "Busiest Intersection";
+console.log(destination.landmarks[1].description); // Busiest Intersection
+console.log(Object.hasOwn(destination, "ratings")); // true
+
 // 4
 const destinations = [
   {
