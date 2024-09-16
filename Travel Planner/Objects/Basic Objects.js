@@ -52,6 +52,13 @@ const destinations = [
   },
 ];
 
+console.log(destinations[0].details.visitorsPerYear); // 7000000
+
+function averageVisitorsOfAllDestinations(arr) {
+  return arr.reduce((a, d) => a + d.details.visitorsPerYear, 0) / arr.length;
+}
+console.log(averageVisitorsOfAllDestinations(destinations)); // 8500000
+
 // 6
 const destinationDetails = {
   name: "Machu Picchu",
