@@ -124,6 +124,16 @@ const destinations2 = {
   3: { name: "Great Wall of China", yearVisited: 2018, rating: 8.6 },
 };
 
+function destWithYearAbove2015(obj) {
+  return Object.entries(obj)
+    .filter(([_, value]) => value.yearVisited > 2015)
+    .map(([key, value]) => {
+      return { id: key, ...value, isNewer: true };
+    });
+}
+
+console.log(destWithYearAbove2015(destinations2));
+
 // 9
 const activityRatings = {
   hiking: [9, 8, 10, 7, 8.5],
