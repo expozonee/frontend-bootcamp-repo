@@ -141,6 +141,23 @@ const activityRatings = {
   snorkeling: [7, 7.5, 8, 8.5, 9],
 };
 
+function averageRatingOfActivity(activity) {
+  const keys = Object.keys(activity);
+  const values = Object.values(activity);
+
+  let obj;
+  keys.forEach((key, index) => {
+    obj = {
+      ...obj,
+      [key]: values[index].reduce((a, r) => a + r) / values[index].length,
+    };
+  });
+
+  return obj;
+}
+
+console.log(averageRatingOfActivity(activityRatings)); // {hiking: 8.5, sightseeing: 8.5, snorkeling: 8.0}
+
 // 10
 const destinationAwards = {
   "Machu Picchu": "Most Visited",
