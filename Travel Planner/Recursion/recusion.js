@@ -197,3 +197,28 @@ console.log(
     { hotel: 250, food: 120 },
   ])
 );
+
+// 12
+
+function longestName(arr, index = 0, subIndex = 0, longest = "") {
+  if (index === arr.length) {
+    return longest;
+  }
+
+  if (subIndex === arr[index].length) {
+    return longestName(arr, index + 1, 0, longest);
+  }
+
+  if (arr[index][subIndex].length > longest.length) {
+    longest = arr[index][subIndex];
+  }
+
+  return longestName(arr, index, subIndex + 1, longest);
+}
+
+console.log(
+  longestName([
+    ["Paris", "Los Angeles"],
+    ["New York", "Florence"],
+  ])
+);
