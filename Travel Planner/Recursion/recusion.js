@@ -173,3 +173,27 @@ function flatArray(arr, index = 0, subIndex = 0, flatedArray = []) {
 console.log(
   flatArray([["Paris"], ["Rome", ["Florence", "Venice"]], ["New York"]])
 );
+
+// 11
+
+function totalMoney(arr, index = 0, sum = 0) {
+  if (index === arr.length) {
+    return sum;
+  }
+
+  Object.values(arr[index]).forEach((value) => {
+    if (typeof value === "number") {
+      sum += value;
+    }
+  });
+
+  return totalMoney(arr, index + 1, sum);
+}
+
+console.log(
+  totalMoney([
+    { hotel: 200, food: 100 },
+    { hotel: 300, food: 150 },
+    { hotel: 250, food: 120 },
+  ])
+);
