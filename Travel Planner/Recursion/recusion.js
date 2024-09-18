@@ -124,3 +124,31 @@ function mostExpensive(arr, index = 0, subIndex = 0, max = 0) {
 }
 
 console.log(mostExpensive([[500, 300], [800, 200], [1000]]));
+
+// 9
+
+//  input : {    flight1: {        transfer: "London",       flight2: { transfer: "New York", flight3: null },      },    }
+// output : 2
+function transferCounter(obj) {
+  let counter = 0;
+
+  for (const value of Object.values(obj)) {
+    if (value !== null && typeof value === "object") {
+      if (value.transfer) {
+        counter++;
+      }
+      counter += transferCounter(value); // Recursively call transferCounter
+    }
+  }
+
+  return counter;
+}
+
+console.log(
+  transferCounter({
+    flight1: {
+      transfer: "London",
+      flight2: { transfer: "New York", flight3: null },
+    },
+  })
+);
