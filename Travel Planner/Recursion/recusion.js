@@ -127,15 +127,11 @@ console.log(mostExpensive([[500, 300], [800, 200], [1000]]));
 
 // 9
 
-function transferCounter(obj) {
-  let counter = 0;
-
+function transferCounter(obj, counter = 0) {
   for (const value of Object.values(obj)) {
-    if (value !== null && typeof value === "object") {
-      if (value.transfer) {
-        counter++;
-      }
-      counter += transferCounter(value);
+    if (typeof value === "object" && value !== null) {
+      counter++;
+      return transferCounter(value, counter);
     }
   }
 
