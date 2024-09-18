@@ -127,8 +127,6 @@ console.log(mostExpensive([[500, 300], [800, 200], [1000]]));
 
 // 9
 
-//  input : {    flight1: {        transfer: "London",       flight2: { transfer: "New York", flight3: null },      },    }
-// output : 2
 function transferCounter(obj) {
   let counter = 0;
 
@@ -137,7 +135,7 @@ function transferCounter(obj) {
       if (value.transfer) {
         counter++;
       }
-      counter += transferCounter(value); // Recursively call transferCounter
+      counter += transferCounter(value);
     }
   }
 
@@ -151,4 +149,27 @@ console.log(
       flight2: { transfer: "New York", flight3: null },
     },
   })
+);
+
+// 10
+
+function flatArray(arr, index = 0, subIndex = 0, flatedArray = []) {
+  if (index === arr.length) {
+    return flatedArray;
+  }
+
+  if (Array.isArray(arr[index][subIndex])) {
+    flatedArray.push(...arr[index][subIndex]);
+  } else {
+    flatedArray.push(arr[index][subIndex]);
+  }
+
+  if (subIndex === arr[index].length - 1) {
+    return flatArray(arr, index + 1, 0, flatedArray);
+  }
+
+  return flatArray(arr, index, subIndex + 1, flatedArray);
+}
+console.log(
+  flatArray([["Paris"], ["Rome", ["Florence", "Venice"]], ["New York"]])
 );
