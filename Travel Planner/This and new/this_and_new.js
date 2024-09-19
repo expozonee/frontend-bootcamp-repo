@@ -81,6 +81,9 @@ function TravelPlanner() {
     this.applySeasonalDiscount = function (discount) {
       this.CostPerNight *= discount;
     };
+    this.calculateTotalCostWithExtraFees = function (fees) {
+      return this.calculateCost() + fees;
+    };
   };
   this.findDestinationByHighestCost = function () {
     return this.destinations.reduce((acc, destination) =>
@@ -117,8 +120,7 @@ console.log(travelPlanner.listDestinations());
 console.log(travelPlanner.calculateTotalRevenue());
 console.log(travelPlanner.getDestinationByName("New York"));
 console.log(travelPlanner.findDestinationByHighestCost());
-console.log(
-  travelPlanner.getDestinationByName("New York").getDiscountedCost(10)
-);
+console.log(destination1.getDiscountedCost(10));
 console.log(flight1.calculateCost());
 console.log(flight1.updateFlightPrice(3500));
+console.log(accommodation1.calculateTotalCostWithExtraFees(200));
