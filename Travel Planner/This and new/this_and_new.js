@@ -66,6 +66,10 @@ function TravelPlanner() {
     this.updatePricePerMile = function (newPrice) {
       this.pricePerMile = newPrice;
     };
+    this.updateFlightPrice = function (newDistance) {
+      this.distance = newDistance;
+      return this.calculateCost();
+    };
   };
   this.Accommodation = function (HotelName, CostPerNight, numberOfNights) {
     this.HotelName = HotelName;
@@ -116,3 +120,5 @@ console.log(travelPlanner.findDestinationByHighestCost());
 console.log(
   travelPlanner.getDestinationByName("New York").getDiscountedCost(10)
 );
+console.log(flight1.calculateCost());
+console.log(flight1.updateFlightPrice(3500));
