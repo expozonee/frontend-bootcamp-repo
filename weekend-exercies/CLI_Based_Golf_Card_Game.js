@@ -91,6 +91,40 @@ function board() {
   console.log("--------------------");
 }
 
+function finishGame() {
+  const playerOneScore = players[0].cards.reduce((total, card) => {
+    return total + card.value;
+  }, 0);
+  const playerTwoScore = players[1].cards.reduce((total, card) => {
+    return total + card.value;
+  }, 0);
+  console.log(players);
+
+  console.log("                  ");
+  console.log("Game Over!");
+  console.log("                  ");
+  board();
+  console.log("                  ");
+  console.log("Final Scores:");
+  console.log(`${players[0].name}: ${playerOneScore}`);
+  console.log(`${players[1].name}: ${playerTwoScore}`);
+  console.log("                  ");
+  console.log(
+    `${
+      playerOneScore < playerTwoScore
+        ? `${players[0].name} is the winner!`
+        : `${players[1].name} is the winner!`
+    }`
+  );
+  console.log("                  ");
+  rl.question("Play again? (Y/N) ", (answer) => {
+    if (answer.toUpperCase() === "Y") {
+      console.clear();
+      askForNames();
+    } else rl.close();
+  });
+}
+
 function takeAction(playerNumber) {
   rl.question(
     "Take an action: 1) Draw from Deck 2) Take from dicard pile: ",
@@ -142,12 +176,18 @@ function takeAction(playerNumber) {
 }
 
 function taketurn(playerNumber) {
+  const isAllShown =
+    players[0].isShown.every((isShown) => isShown === true) &&
+    players[1].isShown.every((isShown) => isShown === true);
+
   board();
   console.log(`${players[playerNumber].name}'s turn!`);
-  takeAction(playerNumber);
+  isAllShown ? finishGame() : takeAction(playerNumber);
 }
 
 function askForNames() {
+  shuffleDeck(deck);
+  discardPile = [];
   rl.question(`First player's name: `, (name) => {
     players[0].name = name;
     rl.question("Second player's name: ", (name) => {
