@@ -31,20 +31,18 @@ function TravelPlanner() {
     return this.destinations.map((destination) => destination.getInfo());
   };
   this.calculateTotalRevenue = function () {
-    return this.destinations.reduce(
-      (total, destination) => total + destination.revenue,
-      0
-    );
+    const totalCost = this.calculateTotalCost();
+    return totalCost * 1.5;
   };
   this.getDestinationByName = function (name) {
-    return this.destinations.find((destination) => destination.name === name);
+    return this.destinations.find((destination) => destination.city === name);
   };
   this.Destination = function (country, city, baseCost) {
     this.country = country;
     this.city = city;
     this.baseCost = baseCost;
     this.getInfo = function () {
-      return `${this.city}, ${this.country}`;
+      return `${this.city}, ${this.country} - $${this.baseCost}`;
     };
     this.calculateCost = function () {
       return this.baseCost;
@@ -76,6 +74,11 @@ function TravelPlanner() {
       this.CostPerNight *= discount;
     };
   };
+  this.findDestinationByHighestCost = function () {
+    return this.destinations.reduce((acc, destination) =>
+      acc.baseCost > destination.baseCost ? acc : destination
+    );
+  };
 }
 
 const travelPlanner = new TravelPlanner();
@@ -103,3 +106,6 @@ travelPlanner.addAccommodation(accommodation1);
 travelPlanner.addAccommodation(accommodation2);
 console.log(travelPlanner.calculateTotalCost());
 console.log(travelPlanner.listDestinations());
+console.log(travelPlanner.calculateTotalRevenue());
+console.log(travelPlanner.getDestinationByName("New York"));
+console.log(travelPlanner.findDestinationByHighestCost());
