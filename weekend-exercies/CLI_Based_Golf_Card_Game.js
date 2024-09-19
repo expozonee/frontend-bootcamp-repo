@@ -54,6 +54,7 @@ function shuffleDeck(deck) {
 
 shuffleDeck(deck);
 let discardPile = [];
+let deckIsEmpty = false;
 
 function startGame() {
   players.forEach((player) => {
@@ -66,6 +67,7 @@ function startGame() {
 }
 
 function board() {
+  console.log("   ");
   console.log("------ Board ------");
 
   for (const player of players) {
@@ -89,40 +91,50 @@ function board() {
     } `
   );
   console.log("--------------------");
+  console.log("   ");
 }
 
-function finishGame() {
-  const playerOneScore = players[0].cards.reduce((total, card) => {
-    return total + card.value;
-  }, 0);
-  const playerTwoScore = players[1].cards.reduce((total, card) => {
-    return total + card.value;
-  }, 0);
-  console.log(players);
+function finishGame(deckIsEmpty) {
+  if (deckIsEmpty) {
+    rl.question("Play again? (Y/N) ", (answer) => {
+      if (answer.toUpperCase() === "Y") {
+        console.clear();
+        askForNames();
+      } else rl.close();
+    });
+  } else {
+    const playerOneScore = players[0].cards.reduce((total, card) => {
+      return total + card.value;
+    }, 0);
+    const playerTwoScore = players[1].cards.reduce((total, card) => {
+      return total + card.value;
+    }, 0);
+    console.log(players);
 
-  console.log("                  ");
-  console.log("Game Over!");
-  console.log("                  ");
-  board();
-  console.log("                  ");
-  console.log("Final Scores:");
-  console.log(`${players[0].name}: ${playerOneScore}`);
-  console.log(`${players[1].name}: ${playerTwoScore}`);
-  console.log("                  ");
-  console.log(
-    `${
-      playerOneScore < playerTwoScore
-        ? `${players[0].name} is the winner!`
-        : `${players[1].name} is the winner!`
-    }`
-  );
-  console.log("                  ");
-  rl.question("Play again? (Y/N) ", (answer) => {
-    if (answer.toUpperCase() === "Y") {
-      console.clear();
-      askForNames();
-    } else rl.close();
-  });
+    console.log("                  ");
+    console.log("Game Over!");
+    console.log("                  ");
+    board();
+    console.log("                  ");
+    console.log("Final Scores:");
+    console.log(`${players[0].name}: ${playerOneScore}`);
+    console.log(`${players[1].name}: ${playerTwoScore}`);
+    console.log("                  ");
+    console.log(
+      `${
+        playerOneScore < playerTwoScore
+          ? `${players[0].name} is the winner!`
+          : `${players[1].name} is the winner!`
+      }`
+    );
+    console.log("                  ");
+    rl.question("Play again? (Y/N) ", (answer) => {
+      if (answer.toUpperCase() === "Y") {
+        console.clear();
+        askForNames();
+      } else rl.close();
+    });
+  }
 }
 
 function takeAction(playerNumber) {
@@ -131,45 +143,138 @@ function takeAction(playerNumber) {
     (answer) => {
       if (answer !== "1" && answer !== "2") takeAction();
       if (answer === "1") {
-        const drawnCard = deck.pop();
-        console.log(`Card drawn is ${drawnCard.rank} of ${drawnCard.suit}`);
-        rl.question(
-          "Take an action: 1) Replace it with own card 2) Throw to discard pile: ",
-          (answer) => {
-            if (answer !== "1" && answer !== "2") {
-              rl.question(
-                "Which card you want to replace (1-4): ",
-                (cardNumber) => {
-                  players[playerNumber].cards[cardNumber - 1] = drawnCard;
-                  players[playerNumber].isShown[cardNumber - 1] = true;
-                  taketurn(playerNumber === 0 ? 1 : 0);
-                }
-              );
+        if (deck.length === 0) {
+          console.log("   ");
+          console.log("Deck card is empty! Game Over!");
+          console.log("   ");
+          deckIsEmpty = true;
+          finishGame(deckIsEmpty);
+        } else {
+          const drawnCard = deck.pop();
+          console.log(`Card drawn is ${drawnCard.rank} of ${drawnCard.suit}`);
+          rl.question(
+            "Take an action: 1) Replace it with face down card 2) Throw to discard pile: ",
+            (answer) => {
+              if (answer !== "1" && answer !== "2") {
+                rl.question(
+                  "Which card you want to replace (1-4): ",
+                  (cardNumber) => {
+                    console.log("   ");
+                    console.log(
+                      `Replacing ${
+                        players[playerNumber].isShown[
+                          (cardNumber > 4 ? 4 : cardNumber) - 1
+                        ]
+                          ? `[${
+                              players[playerNumber].cards[
+                                (cardNumber > 4 ? 4 : cardNumber) - 1
+                              ].rank
+                            } of ${
+                              players[playerNumber].cards[
+                                (cardNumber > 4 ? 4 : cardNumber) - 1
+                              ].suit
+                            }] with [${drawnCard.rank} of ${drawnCard.suit}]`
+                          : `[Face Down] card with [${drawnCard.rank} of ${drawnCard.suit}]`
+                      }`
+                    );
+                    console.log("   ");
+
+                    players[playerNumber].cards[
+                      (cardNumber > 4 ? 4 : cardNumber) - 1
+                    ] = drawnCard;
+                    players[playerNumber].isShown[
+                      (cardNumber > 4 ? 4 : cardNumber) - 1
+                    ] = true;
+
+                    taketurn(playerNumber === 0 ? 1 : 0);
+                  }
+                );
+              }
+              if (answer === "1") {
+                rl.question(
+                  "Which card you want to replace (1-4): ",
+                  (cardNumber) => {
+                    console.log("   ");
+                    console.log(
+                      `Replacing ${
+                        players[playerNumber].isShown[
+                          (cardNumber > 4 ? 4 : cardNumber) - 1
+                        ]
+                          ? `[${
+                              players[playerNumber].cards[
+                                (cardNumber > 4 ? 4 : cardNumber) - 1
+                              ].rank
+                            } of ${
+                              players[playerNumber].cards[
+                                (cardNumber > 4 ? 4 : cardNumber) - 1
+                              ].suit
+                            }] with [${drawnCard.rank} of ${drawnCard.suit}]`
+                          : `[Face Down] card with [${drawnCard.rank} of ${drawnCard.suit}]`
+                      }`
+                    );
+                    console.log("   ");
+
+                    players[playerNumber].cards[
+                      (cardNumber > 4 ? 4 : cardNumber) - 1
+                    ] = drawnCard;
+                    players[playerNumber].isShown[
+                      (cardNumber > 4 ? 4 : cardNumber) - 1
+                    ] = true;
+
+                    taketurn(playerNumber === 0 ? 1 : 0);
+                  }
+                );
+              }
+              if (answer === "2") {
+                discardPile.push(drawnCard);
+                taketurn(playerNumber === 0 ? 1 : 0);
+              }
             }
-            if (answer === "1") {
-              rl.question(
-                "Which card you want to replace (1-4): ",
-                (cardNumber) => {
-                  players[playerNumber].cards[cardNumber - 1] = drawnCard;
-                  players[playerNumber].isShown[cardNumber - 1] = true;
-                  taketurn(playerNumber === 0 ? 1 : 0);
-                }
-              );
-            }
-            if (answer === "2") {
-              discardPile.push(drawnCard);
-              taketurn(playerNumber === 0 ? 1 : 0);
-            }
-          }
-        );
+          );
+        }
       }
       if (answer === "2") {
-        const drawnCard = discardPile.pop();
-        rl.question("Which card you want to replace (1-4): ", (cardNumber) => {
-          players[playerNumber].cards[cardNumber - 1] = drawnCard;
-          players[playerNumber].isShown[cardNumber - 1] = true;
-          taketurn(playerNumber === 0 ? 1 : 0);
-        });
+        if (discardPile.length === 0) {
+          console.log("         ");
+          console.log("Pile card is empty! Instead take from the deck!");
+          console.log("         ");
+          taketurn(playerNumber);
+        } else {
+          const drawnCard = discardPile.pop();
+          rl.question(
+            "Which card you want to replace (1-4): ",
+            (cardNumber) => {
+              console.log("   ");
+              console.log(
+                `Replacing ${
+                  players[playerNumber].isShown[
+                    (cardNumber > 4 ? 4 : cardNumber) - 1
+                  ]
+                    ? `[${
+                        players[playerNumber].cards[
+                          (cardNumber > 4 ? 4 : cardNumber) - 1
+                        ].rank
+                      } of ${
+                        players[playerNumber].cards[
+                          (cardNumber > 4 ? 4 : cardNumber) - 1
+                        ].suit
+                      }] with [${drawnCard.rank} of ${drawnCard.suit}]`
+                    : `[Face Down] card with [${drawnCard.rank} of ${drawnCard.suit}]`
+                }`
+              );
+              console.log("   ");
+
+              players[playerNumber].cards[
+                (cardNumber > 4 ? 4 : cardNumber) - 1
+              ] = drawnCard;
+              players[playerNumber].isShown[
+                (cardNumber > 4 ? 4 : cardNumber) - 1
+              ] = true;
+
+              taketurn(playerNumber === 0 ? 1 : 0);
+            }
+          );
+        }
       }
     }
   );
