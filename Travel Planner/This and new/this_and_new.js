@@ -50,6 +50,10 @@ function TravelPlanner() {
     this.updateBaseCost = function (newCost) {
       this.baseCost = newCost;
     };
+    this.getDiscountedCost = function (discountPercent) {
+      const discountedAmount = this.baseCost * (discountPercent / 100);
+      return baseCost - discountedAmount;
+    };
   };
   this.Flight = function (departure, arrivalCities, distance, pricePerMile) {
     this.departure = departure;
@@ -109,3 +113,6 @@ console.log(travelPlanner.listDestinations());
 console.log(travelPlanner.calculateTotalRevenue());
 console.log(travelPlanner.getDestinationByName("New York"));
 console.log(travelPlanner.findDestinationByHighestCost());
+console.log(
+  travelPlanner.getDestinationByName("New York").getDiscountedCost(10)
+);
