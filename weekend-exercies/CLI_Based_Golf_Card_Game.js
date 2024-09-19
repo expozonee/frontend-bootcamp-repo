@@ -18,12 +18,12 @@ const players = [
   },
 ];
 
-rl.question(`First player's name: `, (name) => {
-  players[0].name = name;
-  rl.question("Second player's name: ", (name) => {
-    players[1].name = name;
-  });
-});
+// rl.question(`First player's name: `, (name) => {
+//   players[0].name = name;
+//   rl.question("Second player's name: ", (name) => {
+//     players[1].name = name;
+//   });
+// });
 
 const suits = ["Hearts", "Diamonds", "Clubs", "Spades"];
 
@@ -42,3 +42,28 @@ const cards = [
   { rank: "Queen", value: 12 },
   { rank: "King", value: 13 },
 ];
+
+function createDeck() {
+  let deck = [];
+  suits.forEach((suit) => {
+    cards.forEach((card) => {
+      deck.push({ suit, rank: card.rank, value: card.value });
+    });
+  });
+  return deck;
+}
+
+const deck = createDeck();
+console.log(deck);
+
+function shuffleDeck(deck) {
+  for (let i = 0; i < deck.length; i++) {
+    const j = Math.floor(Math.random() * deck.length);
+    const temp = deck[i];
+    deck[i] = deck[j];
+    deck[j] = temp;
+  }
+}
+
+shuffleDeck(deck);
+console.log(deck);
