@@ -124,7 +124,9 @@ function finishGame(deckIsEmpty) {
       `${
         playerOneScore < playerTwoScore
           ? `${players[0].name} is the winner!`
-          : `${players[1].name} is the winner!`
+          : playerTwoScore < playerOneScore
+          ? `${players[1].name} is the winner!`
+          : "Draw!"
       }`
     );
     console.log("                  ");
@@ -135,6 +137,24 @@ function finishGame(deckIsEmpty) {
       } else rl.close();
     });
   }
+}
+
+function logCardReplacing(playerNumber, cardNumber, drawnCard) {
+  console.log("   ");
+  console.log(
+    `Replacing ${
+      players[playerNumber].isShown[(cardNumber > 4 ? 4 : cardNumber) - 1]
+        ? `[${
+            players[playerNumber].cards[(cardNumber > 4 ? 4 : cardNumber) - 1]
+              .rank
+          } of ${
+            players[playerNumber].cards[(cardNumber > 4 ? 4 : cardNumber) - 1]
+              .suit
+          }] with [${drawnCard.rank} of ${drawnCard.suit}]`
+        : `[Face Down] card with [${drawnCard.rank} of ${drawnCard.suit}]`
+    }`
+  );
+  console.log("   ");
 }
 
 function takeAction(playerNumber) {
@@ -159,25 +179,13 @@ function takeAction(playerNumber) {
                 rl.question(
                   "Which card you want to replace (1-4): ",
                   (cardNumber) => {
-                    console.log("   ");
-                    console.log(
-                      `Replacing ${
-                        players[playerNumber].isShown[
-                          (cardNumber > 4 ? 4 : cardNumber) - 1
-                        ]
-                          ? `[${
-                              players[playerNumber].cards[
-                                (cardNumber > 4 ? 4 : cardNumber) - 1
-                              ].rank
-                            } of ${
-                              players[playerNumber].cards[
-                                (cardNumber > 4 ? 4 : cardNumber) - 1
-                              ].suit
-                            }] with [${drawnCard.rank} of ${drawnCard.suit}]`
-                          : `[Face Down] card with [${drawnCard.rank} of ${drawnCard.suit}]`
-                      }`
+                    discardPile.push(
+                      players[playerNumber].cards[
+                        (cardNumber > 4 ? 4 : cardNumber) - 1
+                      ]
                     );
-                    console.log("   ");
+
+                    logCardReplacing(playerNumber, cardNumber, drawnCard);
 
                     players[playerNumber].cards[
                       (cardNumber > 4 ? 4 : cardNumber) - 1
@@ -194,25 +202,13 @@ function takeAction(playerNumber) {
                 rl.question(
                   "Which card you want to replace (1-4): ",
                   (cardNumber) => {
-                    console.log("   ");
-                    console.log(
-                      `Replacing ${
-                        players[playerNumber].isShown[
-                          (cardNumber > 4 ? 4 : cardNumber) - 1
-                        ]
-                          ? `[${
-                              players[playerNumber].cards[
-                                (cardNumber > 4 ? 4 : cardNumber) - 1
-                              ].rank
-                            } of ${
-                              players[playerNumber].cards[
-                                (cardNumber > 4 ? 4 : cardNumber) - 1
-                              ].suit
-                            }] with [${drawnCard.rank} of ${drawnCard.suit}]`
-                          : `[Face Down] card with [${drawnCard.rank} of ${drawnCard.suit}]`
-                      }`
+                    discardPile.push(
+                      players[playerNumber].cards[
+                        (cardNumber > 4 ? 4 : cardNumber) - 1
+                      ]
                     );
-                    console.log("   ");
+
+                    logCardReplacing(playerNumber, cardNumber, drawnCard);
 
                     players[playerNumber].cards[
                       (cardNumber > 4 ? 4 : cardNumber) - 1
@@ -244,25 +240,13 @@ function takeAction(playerNumber) {
           rl.question(
             "Which card you want to replace (1-4): ",
             (cardNumber) => {
-              console.log("   ");
-              console.log(
-                `Replacing ${
-                  players[playerNumber].isShown[
-                    (cardNumber > 4 ? 4 : cardNumber) - 1
-                  ]
-                    ? `[${
-                        players[playerNumber].cards[
-                          (cardNumber > 4 ? 4 : cardNumber) - 1
-                        ].rank
-                      } of ${
-                        players[playerNumber].cards[
-                          (cardNumber > 4 ? 4 : cardNumber) - 1
-                        ].suit
-                      }] with [${drawnCard.rank} of ${drawnCard.suit}]`
-                    : `[Face Down] card with [${drawnCard.rank} of ${drawnCard.suit}]`
-                }`
+              discardPile.push(
+                players[playerNumber].cards[
+                  (cardNumber > 4 ? 4 : cardNumber) - 1
+                ]
               );
-              console.log("   ");
+
+              logCardReplacing(playerNumber, cardNumber, drawnCard);
 
               players[playerNumber].cards[
                 (cardNumber > 4 ? 4 : cardNumber) - 1
