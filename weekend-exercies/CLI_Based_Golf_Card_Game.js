@@ -109,7 +109,6 @@ function finishGame(deckIsEmpty) {
     const playerTwoScore = players[1].cards.reduce((total, card) => {
       return total + card.value;
     }, 0);
-    console.log(players);
 
     console.log("                  ");
     console.log("Game Over!");
@@ -157,6 +156,34 @@ function logCardReplacing(playerNumber, cardNumber, drawnCard) {
   console.log("   ");
 }
 
+function replaceCardQuestion(playerNumber, drawnCard, isRepeated = false) {
+  if (isRepeated) {
+    console.log("    ");
+    console.log("You can only change face down card!");
+    console.log("    ");
+  }
+
+  rl.question("Which card you want to replace (1-4): ", (cardNumber) => {
+    discardPile.push(
+      players[playerNumber].cards[(cardNumber > 4 ? 4 : cardNumber) - 1]
+    );
+
+    if (players[playerNumber].isShown[(cardNumber > 4 ? 4 : cardNumber) - 1]) {
+      replaceCardQuestion(playerNumber, drawnCard, true);
+    } else {
+      logCardReplacing(playerNumber, cardNumber, drawnCard);
+
+      players[playerNumber].cards[(cardNumber > 4 ? 4 : cardNumber) - 1] =
+        drawnCard;
+      players[playerNumber].isShown[
+        (cardNumber > 4 ? 4 : cardNumber) - 1
+      ] = true;
+
+      taketurn(playerNumber === 0 ? 1 : 0);
+    }
+  });
+}
+
 function takeAction(playerNumber) {
   rl.question(
     "Take an action: 1) Draw from Deck 2) Take from dicard pile: ",
@@ -176,50 +203,10 @@ function takeAction(playerNumber) {
             "Take an action: 1) Replace it with face down card 2) Throw to discard pile: ",
             (answer) => {
               if (answer !== "1" && answer !== "2") {
-                rl.question(
-                  "Which card you want to replace (1-4): ",
-                  (cardNumber) => {
-                    discardPile.push(
-                      players[playerNumber].cards[
-                        (cardNumber > 4 ? 4 : cardNumber) - 1
-                      ]
-                    );
-
-                    logCardReplacing(playerNumber, cardNumber, drawnCard);
-
-                    players[playerNumber].cards[
-                      (cardNumber > 4 ? 4 : cardNumber) - 1
-                    ] = drawnCard;
-                    players[playerNumber].isShown[
-                      (cardNumber > 4 ? 4 : cardNumber) - 1
-                    ] = true;
-
-                    taketurn(playerNumber === 0 ? 1 : 0);
-                  }
-                );
+                replaceCardQuestion(playerNumber, drawnCard);
               }
               if (answer === "1") {
-                rl.question(
-                  "Which card you want to replace (1-4): ",
-                  (cardNumber) => {
-                    discardPile.push(
-                      players[playerNumber].cards[
-                        (cardNumber > 4 ? 4 : cardNumber) - 1
-                      ]
-                    );
-
-                    logCardReplacing(playerNumber, cardNumber, drawnCard);
-
-                    players[playerNumber].cards[
-                      (cardNumber > 4 ? 4 : cardNumber) - 1
-                    ] = drawnCard;
-                    players[playerNumber].isShown[
-                      (cardNumber > 4 ? 4 : cardNumber) - 1
-                    ] = true;
-
-                    taketurn(playerNumber === 0 ? 1 : 0);
-                  }
-                );
+                replaceCardQuestion(playerNumber, drawnCard);
               }
               if (answer === "2") {
                 discardPile.push(drawnCard);
@@ -237,27 +224,8 @@ function takeAction(playerNumber) {
           taketurn(playerNumber);
         } else {
           const drawnCard = discardPile.pop();
-          rl.question(
-            "Which card you want to replace (1-4): ",
-            (cardNumber) => {
-              discardPile.push(
-                players[playerNumber].cards[
-                  (cardNumber > 4 ? 4 : cardNumber) - 1
-                ]
-              );
 
-              logCardReplacing(playerNumber, cardNumber, drawnCard);
-
-              players[playerNumber].cards[
-                (cardNumber > 4 ? 4 : cardNumber) - 1
-              ] = drawnCard;
-              players[playerNumber].isShown[
-                (cardNumber > 4 ? 4 : cardNumber) - 1
-              ] = true;
-
-              taketurn(playerNumber === 0 ? 1 : 0);
-            }
-          );
+          replaceCardQuestion(playerNumber, drawnCard);
         }
       }
     }
@@ -266,12 +234,22 @@ function takeAction(playerNumber) {
 
 function taketurn(playerNumber) {
   const isAllShown =
-    players[0].isShown.every((isShown) => isShown === true) &&
+    players[0].isShown.every((isShown) => isShown === true) ||
     players[1].isShown.every((isShown) => isShown === true);
 
   board();
   console.log(`${players[playerNumber].name}'s turn!`);
-  isAllShown ? finishGame() : takeAction(playerNumber);
+
+  if (isAllShown) {
+    for (const player of players) {
+      for (let i = 0; i < player.isShown.length; i++) {
+        player.isShown[i] = true;
+      }
+    }
+    finishGame();
+  } else {
+    takeAction(playerNumber);
+  }
 }
 
 function askForNames() {
