@@ -23,6 +23,14 @@ class Trip {
     return this.#distance;
   }
 
+  get totalCost() {
+    return this.#calculateCost();
+  }
+
+  get activites() {
+    return this.#activites;
+  }
+
   set destination(des) {
     if (typeof des !== "string") {
       console.error("Destination must be string!");
@@ -56,6 +64,10 @@ class Trip {
     console.log(`The new distance is: ${this.#distance}`);
   }
 
+  #calculateCost = function () {
+    return this.#duration * 85 + this.#distance * 10;
+  };
+
   addActivity = function (activity) {
     if (typeof des !== "string") {
       console.error("Destination must be string!");
@@ -69,4 +81,19 @@ class Trip {
 
     this.#activites.push(activity);
   };
+
+  displayDetails = function () {
+    return `Destination Trip is: ${this.destination}\nDuration is: ${
+      this.duration
+    } days\nDistance is: ${this.distance} miles\ntotal cost is: $${
+      this.totalCost
+    }\nPlanned activites: ${
+      this.activites.length > 0
+        ? this.activites.join(", ")
+        : "No planned activites yet!"
+    }`;
+  };
 }
+
+const hello = new Trip("New York", 5, 100);
+console.log(hello.displayDetails());
