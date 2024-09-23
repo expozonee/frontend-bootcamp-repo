@@ -69,12 +69,12 @@ class Trip {
   };
 
   addActivity = function (activity) {
-    if (typeof des !== "string") {
+    if (typeof activity !== "string") {
       console.error("Destination must be string!");
       return;
     }
 
-    if (des.length === 0) {
+    if (activity.length === 0) {
       console.error("Destination must not be empty!");
       return;
     }
@@ -160,7 +160,7 @@ class AdventureTrip extends Trip {
   };
 }
 
-const world = new AdventureTrip("New York", 5, 100, "easy", ["hat"]);
+const world = new AdventureTrip("Los Angeles", 5, 100, "easy", ["hat"]);
 // console.log(world.displayDetails());
 
 class CulturalTrip extends Trip {
@@ -228,7 +228,7 @@ const test = new CulturalTrip("Mountian", 10, 1000, "japanese", [
   "mountain",
   "lakes",
 ]);
-console.log(test.displayDetails());
+// console.log(test.displayDetails());
 
 // 3
 
@@ -266,8 +266,85 @@ class Traveler {
       console.log(
         "Trip must be either an object Trip or AdventureTrip or CulturalTrip"
       );
+      return;
     }
 
     this.#plannedTrips.push(trip);
   };
+
+  planActivity = function (trip, activity) {
+    if (
+      !trip instanceof Trip &&
+      !trip instanceof AdventureTrip &&
+      !trip instanceof CulturalTrip
+    ) {
+      console.log("Traveler can only plan activties for planned trips.");
+      return;
+    }
+
+    if (!this.#plannedTrips.includes(trip)) {
+      console.error("The trip is not in the planned trips.");
+      return;
+    }
+
+    trip.addActivity(activity);
+  };
+
+  displayInfoForEachTrip = function () {
+    this.#plannedTrips.forEach((trip, index) => {
+      console.log("---------------------");
+      console.log(`Trip ${index + 1}`);
+      console.log(
+        `${
+          trip instanceof Trip
+            ? `Destination Trip is: ${trip.destination}\nDuration is: ${
+                trip.duration
+              } days\nDistance is: ${trip.distance} miles\ntotal cost is: $${
+                trip.totalCost
+              }\nPlanned activites: ${
+                trip.activites.length > 0
+                  ? trip.activites.join(", ")
+                  : "No planned activites yet!"
+              }`
+            : `${
+                trip instanceof AdventureTrip
+                  ? `Destination Trip is: ${trip.destination}\nDuration is: ${
+                      trip.duration
+                    } days\nDistance is: ${
+                      trip.distance
+                    } miles\ntotal cost is: $${
+                      trip.totalCost
+                    }\nPlanned activites: ${
+                      trip.activites.length > 0
+                        ? trip.activites.join(", ")
+                        : "No planned activites yet!"
+                    }\nAdventure diffculty: ${
+                      trip.diffcultyLevel
+                    }\nGear list: ${trip.gearList.join(", ")}`
+                  : `Destination Trip is: ${trip.destination}\nDuration is: ${
+                      trip.duration
+                    } days\nDistance is: ${
+                      trip.distance
+                    } miles\ntotal cost is: $${
+                      trip.totalCost
+                    }\nPlanned activites: ${
+                      trip.activites.length > 0
+                        ? trip.activites.join(", ")
+                        : "No planned activites yet!"
+                    }\nLanguage: ${
+                      trip.language
+                    }\nHistorical Sites: ${trip.historicalSites.join(", ")}`
+              }`
+        }`
+      );
+      console.log("---------------------");
+    });
+  };
 }
+
+const abc = new Traveler("Ibrahem");
+abc.addTrip(hello);
+abc.addTrip(world);
+abc.planActivity(hello, "driving");
+abc.planActivity(world, "swimming");
+abc.displayInfoForEachTrip();
