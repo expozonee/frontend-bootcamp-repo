@@ -55,4 +55,18 @@ class Trip {
     this.#distance = dis;
     console.log(`The new distance is: ${this.#distance}`);
   }
+
+  addActivity = function (activity) {
+    if (typeof des !== "string") {
+      console.error("Destination must be string!");
+      return;
+    }
+
+    if (des.length === 0) {
+      console.error("Destination must not be empty!");
+      return;
+    }
+
+    this.#activites.push(activity);
+  };
 }
