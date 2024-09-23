@@ -229,3 +229,30 @@ const test = new CulturalTrip("Mountian", 10, 1000, "japanese", [
   "lakes",
 ]);
 console.log(test.displayDetails());
+
+// 3
+
+class Traveler {
+  #name;
+
+  constructor(name) {
+    this.#name = name;
+  }
+
+  get name() {
+    return this.#name;
+  }
+
+  set name(name) {
+    if (typeof name !== "string") {
+      console.error("Name must be text only.");
+      return;
+    }
+
+    if (name.length === 0) {
+      console.error("Name length must be at least 1 char.");
+    }
+
+    this.#name = name;
+  }
+}
