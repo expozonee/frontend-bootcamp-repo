@@ -234,6 +234,7 @@ console.log(test.displayDetails());
 
 class Traveler {
   #name;
+  #plannedTrips = [];
 
   constructor(name) {
     this.#name = name;
@@ -255,4 +256,18 @@ class Traveler {
 
     this.#name = name;
   }
+
+  addTrip = function (trip) {
+    if (
+      !trip instanceof Trip &&
+      !trip instanceof AdventureTrip &&
+      !trip instanceof CulturalTrip
+    ) {
+      console.log(
+        "Trip must be either an object Trip or AdventureTrip or CulturalTrip"
+      );
+    }
+
+    this.#plannedTrips.push(trip);
+  };
 }
