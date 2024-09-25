@@ -21,3 +21,9 @@ myUl.appendChild(newSubTitle);
 
 const myLiParent = myLi.parentElement;
 myLiParent.lastElementChild.remove();
+
+// 6
+
+const head = document.head;
+const title = head.lastElementChild;
+title.textContent = "DOM Master";
