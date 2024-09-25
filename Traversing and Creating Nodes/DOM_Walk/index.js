@@ -16,3 +16,8 @@ const subTitleText = document.createTextNode("sub title 4");
 
 newSubTitle.appendChild(subTitleText);
 myUl.appendChild(newSubTitle);
+
+// 5
+
+const myLiParent = myLi.parentElement;
+myLiParent.lastElementChild.remove();
