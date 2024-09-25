@@ -33,10 +33,7 @@ function submitForm() {
   message = m.join(", ");
 
   if (allFilled) {
-    const pMessage = document.createElement("p");
-    pMessage.id = "formMessage";
-    pMessage.textContent = message;
-    document.body.appendChild(pMessage);
+    alert(message);
   } else {
     alert("All inputs are mandatory");
   }
