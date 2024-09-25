@@ -15,3 +15,16 @@ const users = [
     lastName: "Burton",
   },
 ];
+
+const container = document.querySelector(".container");
+const ol = document.createElement("ol");
+ol.style.listStyleType = "none";
+
+users.forEach((user) => {
+  const li = document.createElement("li");
+  li.setAttribute("data-id", user.id);
+  li.textContent = `${user.firstName} ${user.lastName}`;
+  ol.appendChild(li);
+});
+
+container.appendChild(ol);
