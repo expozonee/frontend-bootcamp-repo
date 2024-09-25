@@ -27,3 +27,9 @@ myLiParent.lastElementChild.remove();
 const head = document.head;
 const title = head.lastElementChild;
 title.textContent = "DOM Master";
+
+// 7
+
+const div = myLiParent.nextElementSibling;
+const p = div.firstElementChild;
+p.textContent = "Now I know how to traverse the DOM :D";
