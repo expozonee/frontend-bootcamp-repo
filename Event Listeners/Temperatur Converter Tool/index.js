@@ -7,10 +7,10 @@ function calculateTemp(num, type) {
   return function () {
     if (type === "c") {
       const answer = ((num - 32) * 5) / 9;
-      return [num, answer.toFixed(2)];
+      return [num, answer.toFixed(answer % 1 === 0 ? 0 : 2)];
     } else {
       let answer = num * (9 / 5) + 32;
-      return [num, answer.toFixed(2)];
+      return [num, answer.toFixed(answer % 1 === 0 ? 0 : 2)];
     }
   };
 }
