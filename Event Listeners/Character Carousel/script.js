@@ -39,12 +39,9 @@ chars.forEach((char) => {
 
 function changePos() {
   charData.forEach((c) => {
-    const currentTransform = c.char.style.transform;
-    console.log(currentTransform);
+    const transform = c.char.style;
+    console.log(transform);
 
-    const newTransform = `translateX(${(c.pos - 1) * 180}px)`;
-    c.char.style.transform = currentTransform
-      ? `${currentTransform} ${newTransform}`
-      : newTransform;
+    c.char.style.transform = `translateX(${(c.pos - 1) * 180}px)`;
   });
 }
