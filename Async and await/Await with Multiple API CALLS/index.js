@@ -29,16 +29,22 @@ async function displayUserAndPosts() {
       const userContainer = userContainerTemplate.content.cloneNode(true);
       const userNameElement = userContainer.querySelector(".user-name");
       const userEmailElement = userContainer.querySelector(".user-email");
+      const postsContainer = userContainer.querySelector(".posts");
       userNameElement.innerText = `Name: ${user.name}`;
       userEmailElement.innerText = `Email: ${user.email}`;
       try {
         const userPosts = await fetchPosts(user.id);
 
         userPosts.forEach((post) => {
-          const postTitle = userContainer.querySelector(".post-title");
-          const postBody = userContainer.querySelector(".post-body");
+          const postContainer = document.createElement("div");
+          postContainer.classList.add("post");
+          const postTitle = document.createElement("h4");
+          const postBody = document.createElement("p");
           postTitle.innerHTML = `<strong>Title:</strong> ${post.title}`;
           postBody.innerHTML = `<strong>Description:</strong>\n ${post.body}`;
+          postContainer.appendChild(postTitle);
+          postContainer.appendChild(postBody);
+          postsContainer.appendChild(postContainer);
         });
         usersContainer.appendChild(userContainer);
       } catch (error) {

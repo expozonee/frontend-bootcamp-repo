@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="./index.js" defer></script>
-    <title>Promise Chaining with Multiple API Calls to JSONPlaceholder</title>
+    <title>Promise Error Handling Exercise</title>
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -27,6 +27,15 @@
         color: #007bff;
       }
 
+      .error-message {
+        color: #f44336;
+        border: 2px solid #f44336;
+        padding: 10px;
+        margin: 20px 0;
+        border-radius: 5px;
+        background: #ffe6e6;
+      }
+
       .user {
         margin: 20px 0;
         padding: 10px;
@@ -35,47 +44,17 @@
         background: #f3f3f3;
       }
 
-      h2 {
-        color: #040433;
-      }
-
-      .posts {
-        margin: 10px 0;
-        padding-left: 20px;
-      }
-
-      .post {
-        margin: 5px 0;
-        padding: 5px;
-        border: 1px solid #e0e0e0;
-        border-radius: 5px;
-        background: #fafafa;
-      }
-
-      .post strong {
-        color: #070956;
+      .user h2 {
+        color: #4caf50;
       }
     </style>
   </head>
 
   <body>
     <div class="container">
-      <h1>Users and Their Posts</h1>
-      <div id="users">
-        <!-- user container template -->
-
-        <template id="user-container">
-          <div class="user">
-            <h2 class="user-name"></h2>
-            <h5 class="user-email"></h5>
-            <div class="posts">
-              <h4>Users Posts</h4>
-            </div>
-          </div>
-        </template>
-
-        <!--  -->
-      </div>
+      <h1>Users from JSONPlaceholder</h1>
+      <div id="users"></div>
+      <div class="error-message" id="error"></div>
     </div>
   </body>
 </html>
