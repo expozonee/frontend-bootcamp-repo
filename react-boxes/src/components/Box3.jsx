@@ -1,21 +1,11 @@
 import { Box4 } from "./Box4";
+import { Div } from "./Div";
 
 export function Box3() {
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        flexDirection: "column",
-        gap: "1rem",
-        background: "lightpink",
-        width: "800px",
-        height: "300px",
-      }}
-    >
+    <Div background={"pink"} flexDirection={"column"} width={800} height={300}>
       <Box4 />
       <Box4 />
-    </div>
+    </Div>
   );
 }
