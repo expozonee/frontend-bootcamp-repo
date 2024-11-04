@@ -4,10 +4,10 @@ import QuizTitle from "./QuizTitle";
 
 export function Quiz() {
   return (
-    <div className="quiz">
+    <section id="quiz-container">
       <QuizTitle />
       <Q1 />
       <Q2 />
-    </div>
+    </section>
   );
 }
