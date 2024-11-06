@@ -7,7 +7,7 @@
     "tripLong": 6,
     "price": 2100,
     "date": "august 26th, 2020",
-    "image": "../public/images/tour-1.jpeg"
+    "image": "images/tour-1.jpeg"
   },
   {
     "id": 2,
@@ -17,7 +17,7 @@
     "tripLong": 11,
     "price": 1400,
     "date": "october 1th, 2020",
-    "image": "../public/images/tour-2.jpeg"
+    "image": "images/tour-2.jpeg"
   },
   {
     "id": 3,
@@ -27,7 +27,7 @@
     "tripLong": 8,
     "price": 5000,
     "date": "september 15th, 2020",
-    "image": "../public/images/tour-3.jpeg"
+    "image": "images/tour-3.jpeg"
   },
   {
     "id": 4,
@@ -37,6 +37,6 @@
     "tripLong": 20,
     "price": 3300,
     "date": "december 5th, 2019",
-    "image": "../public/images/tour-4.jpeg"
+    "image": "images/tour-4.jpeg"
   }
 ]
