@@ -6,7 +6,15 @@ export default function NavBar() {
       <div className="nav-center">
         <div className="nav-header">
           <img src="./images/logo.svg" className="nav-logo" alt="backroads" />
-          <button type="button" className="nav-toggle" id="nav-toggle">
+          <button
+            type="button"
+            className="nav-toggle"
+            id="nav-toggle"
+            onClick={() => {
+              const links = document.getElementById("nav-links");
+              links.classList.toggle("show-links");
+            }}
+          >
             <i className="fas fa-bars"></i>
           </button>
         </div>

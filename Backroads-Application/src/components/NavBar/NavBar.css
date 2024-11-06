@@ -58,6 +58,10 @@
 }
 .show-links {
   height: 280px;
+  position: fixed;
+  top: 7%;
+  background-color: white;
+  width: 80%;
 }
 /* nav at bigger screen size */
 @media screen and (min-width: 992px) {
