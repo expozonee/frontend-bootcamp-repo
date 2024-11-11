@@ -1,4 +1,5 @@
 import "./App.css";
+import Form from "./components/Form/Form";
 import ImageToggle from "./components/ImageToggle/ImageToggle";
 import VideoPlayer from "./components/VideoPlayer/VideoPlayer";
 
@@ -7,6 +8,7 @@ function App() {
     <>
       <VideoPlayer />
       <ImageToggle />
+      <Form />
     </>
   );
 }
