@@ -1,0 +1,103 @@
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #333;
+  border-top: 5;
+  border-radius: 50%;
+  position: relative;
+  background-color: transparent;
+}
+
+.spinner::after {
+  content: "";
+  position: absolute;
+  inset: -5px;
+  border: 5px solid #333;
+  border-top-color: #f1f1f1;
+  border-radius: 50%;
+  animation: rotate 1s linear infinite;
+}
+
+.cirlce {
+  content: "";
+  width: 50px;
+  height: 50px;
+  border: 3px solid rgb(255, 255, 255) transparent;
+  border-top: 2px solid #f1f1f1;
+  border-radius: 50%;
+  animation: rotate 1s linear infinite;
+}
+
+.dots-blink,
+.dots-scale {
+  display: flex;
+  gap: 20px;
+  padding-left: 10px;
+}
+
+.dots-blink .dot {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #f1f1f1;
+  animation: blink 1s ease-out infinite;
+}
+
+.dot:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes blink {
+  0% {
+    background-color: gold;
+  }
+  100% {
+    background-color: #f1f1f1;
+  }
+}
+
+.dots-scale .dot {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: gold;
+  animation: scale 1.2s ease infinite;
+}
+
+.dot:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.33s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 0.66s;
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
