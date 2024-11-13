@@ -33,7 +33,7 @@ export default function ColorBox() {
         backgroundColor: color,
         borderRadius: `${count === 5 ? "50%" : ""}`,
       }}
-      className="box"
+      className="color-box"
     />
   );
 }

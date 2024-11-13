@@ -24,9 +24,9 @@
 }
 
 .slide-in {
-  animation: slide-in 2s ease-in-out forwards;
+  animation: slide-in 1s ease-in-out forwards;
 }
 
 .slide-out {
-  animation: slide-out 2s ease-in-out forwards;
+  animation: slide-out 1s ease-in-out forwards;
 }

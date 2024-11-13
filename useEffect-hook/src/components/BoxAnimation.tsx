@@ -1,5 +1,4 @@
 import Box from "./Box/Box";
-import "./BoxAnimation.css";
 
 export default function BoxAnimation() {
   return (
