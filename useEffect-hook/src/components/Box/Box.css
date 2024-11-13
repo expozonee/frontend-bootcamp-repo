@@ -1,0 +1,32 @@
+.box {
+  width: 100px;
+  height: 100px;
+  transform: translateX(-100vw);
+  background-color: red;
+}
+
+@keyframes slide-in {
+  0% {
+    transform: translateX(-100vw);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-out {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100vw);
+  }
+}
+
+.slide-in {
+  animation: slide-in 2s ease-in-out forwards;
+}
+
+.slide-out {
+  animation: slide-out 2s ease-in-out forwards;
+}
