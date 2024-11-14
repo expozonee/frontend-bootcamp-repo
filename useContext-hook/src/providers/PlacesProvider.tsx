@@ -1,12 +1,10 @@
 import { createContext, ReactNode, useContext, useState } from "react";
-import { places } from "../data/places";
 
 type PlacesProviderProps = {
   children: ReactNode;
 };
 
 type PlacesContext = {
-  places: typeof places;
   useLarge(): {
     isLarge: boolean;
     setIsLarge: React.Dispatch<React.SetStateAction<boolean>>;
@@ -17,8 +15,8 @@ type PlacesContext = {
 const PlacesContext = createContext<PlacesContext | null>(null);
 
 export default function PlacesProvider({ children }: PlacesProviderProps) {
+  const [isLarge, setIsLarge] = useState(false);
   function useLarge() {
-    const [isLarge, setIsLarge] = useState(false);
     const imageSize = isLarge ? 150 : 100;
 
     return {
@@ -29,7 +27,7 @@ export default function PlacesProvider({ children }: PlacesProviderProps) {
   }
 
   return (
-    <PlacesContext.Provider value={{ places, useLarge }}>
+    <PlacesContext.Provider value={{ useLarge }}>
       {children}
     </PlacesContext.Provider>
   );
